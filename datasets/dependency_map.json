@@ -1,0 +1,50 @@
+{
+  "network-gateway": [],
+  "auth-service": [
+    "network-gateway"
+  ],
+  "session-store": [
+    "network-gateway"
+  ],
+  "inventory-service": [
+    "network-gateway"
+  ],
+  "search-service": [
+    "network-gateway"
+  ],
+  "media-upload": [
+    "network-gateway"
+  ],
+  "payments-service": [
+    "auth-service",
+    "session-store"
+  ],
+  "profile-service": [
+    "auth-service"
+  ],
+  "chat-support": [
+    "auth-service"
+  ],
+  "recommendation-engine": [
+    "search-service"
+  ],
+  "checkout-service": [
+    "payments-service",
+    "inventory-service"
+  ],
+  "billing-service": [
+    "payments-service"
+  ],
+  "notifications-service": [
+    "checkout-service"
+  ],
+  "shipping-service": [
+    "checkout-service"
+  ],
+  "analytics-ingest": [
+    "checkout-service",
+    "search-service"
+  ],
+  "cdn-edge": [],
+  "cache-gateway": []
+}

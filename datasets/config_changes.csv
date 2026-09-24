@@ -1,0 +1,13 @@
+timestamp_min,service,change_id,description
+5,cdn-edge,cfg-1001,Updated cache TTL for static assets from 300s to 600s
+18,chat-support,cfg-1002,Rotated API key for third-party chat widget integration
+42,network-gateway,cfg-1003,Updated internal routing table for backbone service mesh (v4.7 rollout)
+50,checkout-service,cfg-1004,Adjusted logging verbosity from INFO to DEBUG for checkout flow
+77,cache-gateway,cfg-1005,Increased connection pool size from 50 to 75
+110,notifications-service,cfg-1006,Updated email template for order confirmation
+140,billing-service,cfg-1007,Patched currency-rounding rule for INR transactions
+168,profile-service,cfg-1008,Enabled new avatar upload size limit (5MB to 8MB)
+205,media-upload,cfg-1009,Restarted worker pool after scheduled maintenance window
+240,search-service,cfg-1010,Reindexed product catalog (scheduled weekly job)
+275,shipping-service,cfg-1011,Updated carrier rate table for regional zones
+310,analytics-ingest,cfg-1012,"Added new event schema field (non-breaking, additive)"
