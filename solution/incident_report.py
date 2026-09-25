@@ -1,6 +1,7 @@
 """Generate human-readable and JSON incident artifacts."""
 
 import json
+from collections import defaultdict
 from pathlib import Path
 
 try:
@@ -15,13 +16,30 @@ def build_result(dataset: dict, findings: list[dict], trends: list[dict], cascad
     ranked = rank_changes(dataset["changes"], cascade)
     earliest = min((row["timestamp_min"] for row in findings if row["level"] != "normal"), default=None)
     intervention = min((row["timestamp_min"] for row in findings if row["anomaly_score"] >= 1.45), default=earliest)
+    latency_by_minute = defaultdict(list)
+    incident_counts = defaultdict(int)
+    observed_services = set()
+    for row in findings:
+        observed_services.add(row["service"])
+        latency_by_minute[row["timestamp_min"]].append(row["latency_ms"])
+        if row["level"] != "normal":
+            incident_counts[row["service"]] += 1
+    latency_series = [
+        {"timestamp_min": timestamp, "latency_ms": round(sum(values) / len(values), 2)}
+        for timestamp, values in sorted(latency_by_minute.items())
+    ]
     return {
+        "window": dataset.get("window", "6-hour supplied replay"),
+        "sample_count": len(findings),
         "detected": cascade["detected"],
         "earliest_detectable_min": earliest,
         "recommended_intervention_min": intervention,
         "cascade": cascade,
         "ranked_changes": ranked,
         "trend_evidence": trends,
+        "latency_series": latency_series,
+        "incident_counts": dict(sorted(incident_counts.items(), key=lambda item: (-item[1], item[0]))),
+        "service_health": {service: incident_counts.get(service, 0) for service in sorted(observed_services)},
     }
 
 

@@ -8,6 +8,7 @@ try:
     from .cascade_detector import detect_cascade
     from .config import DATA_DIR
     from .dashboard import serve
+    from .data_generator import generate_month_dataset
     from .data_loader import load_dataset
     from .incident_report import build_result, write_reports
     from .trend_detector import detect_trends
@@ -16,14 +17,15 @@ except ImportError:
     from cascade_detector import detect_cascade
     from config import DATA_DIR
     from dashboard import serve
+    from data_generator import generate_month_dataset
     from data_loader import load_dataset
     from incident_report import build_result, write_reports
     from trend_detector import detect_trends
 
 
-def run(data_dir=DATA_DIR) -> dict:
+def run(data_dir=DATA_DIR, month: bool = False) -> dict:
     data_dir = Path(data_dir)
-    dataset = load_dataset(data_dir)
+    dataset = generate_month_dataset(data_dir) if month else load_dataset(data_dir)
     findings = detect_anomalies(dataset["metrics"])
     trends = detect_trends(findings)
     cascade = detect_cascade(findings, dataset["dependencies"], dataset["changes"])
@@ -36,8 +38,9 @@ def main() -> None:
     parser.add_argument("--report", action="store_true", help="write Markdown and JSON reports")
     parser.add_argument("--serve", action="store_true", help="serve the browser dashboard")
     parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--month", action="store_true", help="use a deterministic 30-day hourly realtime-style dataset")
     args = parser.parse_args()
-    result = run(args.data_dir)
+    result = run(args.data_dir, month=args.month)
     if args.report or not args.serve:
         paths = write_reports(result)
         print(f"Root cause: {result['cascade'].get('root_cause', {}).get('change_id', 'none')}")

@@ -1,311 +1,3197 @@
 {
+  "window": "30 days / hourly samples",
+  "sample_count": 12257,
   "detected": true,
-  "earliest_detectable_min": 63.0,
-  "recommended_intervention_min": 63.0,
+  "earliest_detectable_min": 3360.0,
+  "recommended_intervention_min": 3360.0,
   "cascade": {
     "detected": true,
     "root_service": "network-gateway",
-    "root_onset_min": 66.0,
+    "root_onset_min": 36060.0,
     "onsets": {
-      "auth-service": 63.0,
-      "session-store": 63.0,
-      "network-gateway": 66.0,
-      "search-service": 72.0,
-      "inventory-service": 78.0,
-      "media-upload": 78.0,
-      "profile-service": 81.0,
-      "chat-support": 84.0,
-      "payments-service": 84.0,
-      "recommendation-engine": 84.0,
-      "billing-service": 96.0,
-      "checkout-service": 96.0,
-      "notifications-service": 111.0,
-      "analytics-ingest": 114.0,
-      "shipping-service": 117.0,
-      "cdn-edge": 126.0,
-      "cache-gateway": 267.0
+      "cache-gateway": 3360.0,
+      "network-gateway": 36060.0,
+      "auth-service": 36120.0,
+      "session-store": 36120.0,
+      "inventory-service": 36300.0,
+      "chat-support": 36360.0,
+      "recommendation-engine": 36480.0,
+      "analytics-ingest": 36540.0,
+      "checkout-service": 36780.0,
+      "notifications-service": 37440.0,
+      "shipping-service": 37440.0,
+      "profile-service": 37500.0,
+      "media-upload": 37560.0,
+      "payments-service": 37560.0,
+      "billing-service": 37620.0,
+      "search-service": 37620.0
     },
     "path": [
       {
         "from": "network-gateway",
         "to": "auth-service",
-        "timestamp_min": 63.0,
-        "lag_min": -3.0
+        "timestamp_min": 36120.0,
+        "lag_min": 60.0
       },
       {
         "from": "network-gateway",
         "to": "session-store",
-        "timestamp_min": 63.0,
-        "lag_min": -3.0
+        "timestamp_min": 36120.0,
+        "lag_min": 60.0
       },
       {
         "from": "network-gateway",
         "to": "inventory-service",
-        "timestamp_min": 78.0,
-        "lag_min": 12.0
+        "timestamp_min": 36300.0,
+        "lag_min": 240.0
       },
       {
         "from": "network-gateway",
         "to": "search-service",
-        "timestamp_min": 72.0,
-        "lag_min": 6.0
+        "timestamp_min": 37620.0,
+        "lag_min": 1560.0
       },
       {
         "from": "network-gateway",
         "to": "media-upload",
-        "timestamp_min": 78.0,
-        "lag_min": 12.0
+        "timestamp_min": 37560.0,
+        "lag_min": 1500.0
       },
       {
         "from": "auth-service",
         "to": "payments-service",
-        "timestamp_min": 84.0,
-        "lag_min": 21.0
+        "timestamp_min": 37560.0,
+        "lag_min": 1440.0
       },
       {
         "from": "auth-service",
         "to": "profile-service",
-        "timestamp_min": 81.0,
-        "lag_min": 18.0
+        "timestamp_min": 37500.0,
+        "lag_min": 1380.0
       },
       {
         "from": "auth-service",
         "to": "chat-support",
-        "timestamp_min": 84.0,
-        "lag_min": 21.0
+        "timestamp_min": 36360.0,
+        "lag_min": 240.0
       },
       {
         "from": "inventory-service",
         "to": "checkout-service",
-        "timestamp_min": 96.0,
-        "lag_min": 18.0
+        "timestamp_min": 36780.0,
+        "lag_min": 480.0
       },
       {
         "from": "search-service",
         "to": "recommendation-engine",
-        "timestamp_min": 84.0,
-        "lag_min": 12.0
+        "timestamp_min": 36480.0,
+        "lag_min": -1140.0
       },
       {
         "from": "search-service",
         "to": "analytics-ingest",
-        "timestamp_min": 114.0,
-        "lag_min": 42.0
+        "timestamp_min": 36540.0,
+        "lag_min": -1080.0
       },
       {
         "from": "payments-service",
         "to": "billing-service",
-        "timestamp_min": 96.0,
-        "lag_min": 12.0
+        "timestamp_min": 37620.0,
+        "lag_min": 60.0
       },
       {
         "from": "checkout-service",
         "to": "notifications-service",
-        "timestamp_min": 111.0,
-        "lag_min": 15.0
+        "timestamp_min": 37440.0,
+        "lag_min": 660.0
       },
       {
         "from": "checkout-service",
         "to": "shipping-service",
-        "timestamp_min": 117.0,
-        "lag_min": 21.0
+        "timestamp_min": 37440.0,
+        "lag_min": 660.0
       }
     ],
     "root_cause": {
-      "timestamp_min": 42.0,
+      "timestamp_min": 34560.0,
       "service": "network-gateway",
-      "change_id": "cfg-1003",
-      "description": "Updated internal routing table for backbone service mesh (v4.7 rollout)"
+      "change_id": "cfg-month-042",
+      "description": "Updated internal routing table for backbone service mesh"
     }
   },
   "ranked_changes": [
     {
-      "timestamp_min": 42.0,
+      "timestamp_min": 34560.0,
       "service": "network-gateway",
-      "change_id": "cfg-1003",
-      "description": "Updated internal routing table for backbone service mesh (v4.7 rollout)",
-      "causal_score": 1.6
+      "change_id": "cfg-month-042",
+      "description": "Updated internal routing table for backbone service mesh",
+      "causal_score": 1.0
     },
     {
-      "timestamp_min": 77.0,
-      "service": "cache-gateway",
-      "change_id": "cfg-1005",
-      "description": "Increased connection pool size from 50 to 75",
-      "causal_score": 0.82
-    },
-    {
-      "timestamp_min": 50.0,
-      "service": "checkout-service",
-      "change_id": "cfg-1004",
-      "description": "Adjusted logging verbosity from INFO to DEBUG for checkout flow",
-      "causal_score": 0.73
-    },
-    {
-      "timestamp_min": 110.0,
-      "service": "notifications-service",
-      "change_id": "cfg-1006",
-      "description": "Updated email template for order confirmation",
-      "causal_score": 0.27
-    },
-    {
-      "timestamp_min": 18.0,
-      "service": "chat-support",
-      "change_id": "cfg-1002",
-      "description": "Rotated API key for third-party chat widget integration",
-      "causal_score": 0.2
-    },
-    {
-      "timestamp_min": 5.0,
-      "service": "cdn-edge",
-      "change_id": "cfg-1001",
-      "description": "Updated cache TTL for static assets from 300s to 600s",
-      "causal_score": 0.0
-    },
-    {
-      "timestamp_min": 140.0,
-      "service": "billing-service",
-      "change_id": "cfg-1007",
-      "description": "Patched currency-rounding rule for INR transactions",
-      "causal_score": 0.0
-    },
-    {
-      "timestamp_min": 168.0,
-      "service": "profile-service",
-      "change_id": "cfg-1008",
-      "description": "Enabled new avatar upload size limit (5MB to 8MB)",
-      "causal_score": 0.0
-    },
-    {
-      "timestamp_min": 205.0,
-      "service": "media-upload",
-      "change_id": "cfg-1009",
-      "description": "Restarted worker pool after scheduled maintenance window",
-      "causal_score": 0.0
-    },
-    {
-      "timestamp_min": 240.0,
-      "service": "search-service",
-      "change_id": "cfg-1010",
-      "description": "Reindexed product catalog (scheduled weekly job)",
-      "causal_score": 0.0
-    },
-    {
-      "timestamp_min": 275.0,
-      "service": "shipping-service",
-      "change_id": "cfg-1011",
-      "description": "Updated carrier rate table for regional zones",
-      "causal_score": 0.0
-    },
-    {
-      "timestamp_min": 310.0,
+      "timestamp_min": 1980.0,
       "service": "analytics-ingest",
-      "change_id": "cfg-1012",
-      "description": "Added new event schema field (non-breaking, additive)",
+      "change_id": "month-01",
+      "description": "Routine scheduled schema and index maintenance",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 6300.0,
+      "service": "analytics-ingest",
+      "change_id": "month-04",
+      "description": "Routine scheduled schema and index maintenance",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 10620.0,
+      "service": "analytics-ingest",
+      "change_id": "month-07",
+      "description": "Routine scheduled schema and index maintenance",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 14940.0,
+      "service": "analytics-ingest",
+      "change_id": "month-10",
+      "description": "Routine scheduled schema and index maintenance",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 19260.0,
+      "service": "analytics-ingest",
+      "change_id": "month-13",
+      "description": "Routine scheduled schema and index maintenance",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 23580.0,
+      "service": "analytics-ingest",
+      "change_id": "month-16",
+      "description": "Routine scheduled schema and index maintenance",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 27900.0,
+      "service": "analytics-ingest",
+      "change_id": "month-19",
+      "description": "Routine scheduled schema and index maintenance",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 32220.0,
+      "service": "analytics-ingest",
+      "change_id": "month-22",
+      "description": "Routine scheduled schema and index maintenance",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 36540.0,
+      "service": "analytics-ingest",
+      "change_id": "month-25",
+      "description": "Routine scheduled schema and index maintenance",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 40860.0,
+      "service": "analytics-ingest",
+      "change_id": "month-28",
+      "description": "Routine scheduled schema and index maintenance",
       "causal_score": 0.0
     }
   ],
   "trend_evidence": [
     {
-      "service": "network-gateway",
-      "timestamp_min": 66.0,
-      "slope_ms_per_sample": 10.46,
-      "confidence": 0.71
+      "service": "session-store",
+      "timestamp_min": 36120.0,
+      "slope_ms_per_sample": 1.46,
+      "confidence": 0.73
     },
     {
-      "service": "session-store",
-      "timestamp_min": 66.0,
-      "slope_ms_per_sample": -0.45,
+      "service": "network-gateway",
+      "timestamp_min": 36240.0,
+      "slope_ms_per_sample": 2.17,
       "confidence": 0.73
     },
     {
       "service": "auth-service",
-      "timestamp_min": 72.0,
-      "slope_ms_per_sample": 4.75,
-      "confidence": 0.71
-    },
-    {
-      "service": "search-service",
-      "timestamp_min": 72.0,
-      "slope_ms_per_sample": 17.15,
+      "timestamp_min": 36300.0,
+      "slope_ms_per_sample": 0.76,
       "confidence": 0.73
-    },
-    {
-      "service": "inventory-service",
-      "timestamp_min": 84.0,
-      "slope_ms_per_sample": 3.45,
-      "confidence": 0.73
-    },
-    {
-      "service": "media-upload",
-      "timestamp_min": 84.0,
-      "slope_ms_per_sample": 37.71,
-      "confidence": 0.73
-    },
-    {
-      "service": "profile-service",
-      "timestamp_min": 84.0,
-      "slope_ms_per_sample": 7.99,
-      "confidence": 0.76
     },
     {
       "service": "chat-support",
-      "timestamp_min": 87.0,
-      "slope_ms_per_sample": 6.87,
+      "timestamp_min": 36360.0,
+      "slope_ms_per_sample": 2.84,
       "confidence": 0.73
     },
     {
       "service": "recommendation-engine",
-      "timestamp_min": 87.0,
-      "slope_ms_per_sample": 10.17,
+      "timestamp_min": 36420.0,
+      "slope_ms_per_sample": 2.86,
       "confidence": 0.72
     },
     {
-      "service": "checkout-service",
-      "timestamp_min": 96.0,
-      "slope_ms_per_sample": 17.88,
-      "confidence": 0.71
+      "service": "inventory-service",
+      "timestamp_min": 36480.0,
+      "slope_ms_per_sample": 2.95,
+      "confidence": 0.73
     },
     {
-      "service": "payments-service",
-      "timestamp_min": 96.0,
-      "slope_ms_per_sample": 19.32,
-      "confidence": 0.74
+      "service": "profile-service",
+      "timestamp_min": 37560.0,
+      "slope_ms_per_sample": 5.71,
+      "confidence": 0.73
+    },
+    {
+      "service": "media-upload",
+      "timestamp_min": 37620.0,
+      "slope_ms_per_sample": 4.43,
+      "confidence": 0.72
     },
     {
       "service": "billing-service",
-      "timestamp_min": 99.0,
-      "slope_ms_per_sample": 7.86,
+      "timestamp_min": 37680.0,
+      "slope_ms_per_sample": 2.98,
       "confidence": 0.72
     },
     {
       "service": "notifications-service",
-      "timestamp_min": 111.0,
-      "slope_ms_per_sample": 10.97,
-      "confidence": 0.71
+      "timestamp_min": 37680.0,
+      "slope_ms_per_sample": 5.38,
+      "confidence": 0.73
     },
     {
-      "service": "analytics-ingest",
-      "timestamp_min": 117.0,
-      "slope_ms_per_sample": 38.45,
+      "service": "search-service",
+      "timestamp_min": 37740.0,
+      "slope_ms_per_sample": 2.17,
       "confidence": 0.73
     },
     {
       "service": "shipping-service",
-      "timestamp_min": 123.0,
-      "slope_ms_per_sample": 10.56,
+      "timestamp_min": 37800.0,
+      "slope_ms_per_sample": 3.34,
       "confidence": 0.73
     },
     {
-      "service": "cdn-edge",
-      "timestamp_min": 129.0,
-      "slope_ms_per_sample": 10.87,
-      "confidence": 0.76
+      "service": "payments-service",
+      "timestamp_min": 37860.0,
+      "slope_ms_per_sample": 9.92,
+      "confidence": 0.71
     },
     {
-      "service": "cache-gateway",
-      "timestamp_min": 270.0,
-      "slope_ms_per_sample": 7.77,
-      "confidence": 0.81
+      "service": "checkout-service",
+      "timestamp_min": 37920.0,
+      "slope_ms_per_sample": 7.43,
+      "confidence": 0.73
+    },
+    {
+      "service": "analytics-ingest",
+      "timestamp_min": 39120.0,
+      "slope_ms_per_sample": 4.1,
+      "confidence": 0.72
     }
-  ]
+  ],
+  "latency_series": [
+    {
+      "timestamp_min": 0.0,
+      "latency_ms": 98.29
+    },
+    {
+      "timestamp_min": 60.0,
+      "latency_ms": 100.07
+    },
+    {
+      "timestamp_min": 120.0,
+      "latency_ms": 104.19
+    },
+    {
+      "timestamp_min": 180.0,
+      "latency_ms": 106.83
+    },
+    {
+      "timestamp_min": 240.0,
+      "latency_ms": 109.88
+    },
+    {
+      "timestamp_min": 300.0,
+      "latency_ms": 110.39
+    },
+    {
+      "timestamp_min": 360.0,
+      "latency_ms": 110.92
+    },
+    {
+      "timestamp_min": 420.0,
+      "latency_ms": 108.48
+    },
+    {
+      "timestamp_min": 480.0,
+      "latency_ms": 111.72
+    },
+    {
+      "timestamp_min": 540.0,
+      "latency_ms": 106.95
+    },
+    {
+      "timestamp_min": 600.0,
+      "latency_ms": 104.78
+    },
+    {
+      "timestamp_min": 660.0,
+      "latency_ms": 99.89
+    },
+    {
+      "timestamp_min": 720.0,
+      "latency_ms": 98.15
+    },
+    {
+      "timestamp_min": 780.0,
+      "latency_ms": 95.94
+    },
+    {
+      "timestamp_min": 840.0,
+      "latency_ms": 92.99
+    },
+    {
+      "timestamp_min": 900.0,
+      "latency_ms": 92.05
+    },
+    {
+      "timestamp_min": 960.0,
+      "latency_ms": 87.86
+    },
+    {
+      "timestamp_min": 1020.0,
+      "latency_ms": 86.81
+    },
+    {
+      "timestamp_min": 1080.0,
+      "latency_ms": 89.8
+    },
+    {
+      "timestamp_min": 1140.0,
+      "latency_ms": 85.42
+    },
+    {
+      "timestamp_min": 1200.0,
+      "latency_ms": 87.56
+    },
+    {
+      "timestamp_min": 1260.0,
+      "latency_ms": 89.85
+    },
+    {
+      "timestamp_min": 1320.0,
+      "latency_ms": 94.74
+    },
+    {
+      "timestamp_min": 1380.0,
+      "latency_ms": 96.53
+    },
+    {
+      "timestamp_min": 1440.0,
+      "latency_ms": 100.88
+    },
+    {
+      "timestamp_min": 1500.0,
+      "latency_ms": 101.75
+    },
+    {
+      "timestamp_min": 1560.0,
+      "latency_ms": 105.23
+    },
+    {
+      "timestamp_min": 1620.0,
+      "latency_ms": 105.65
+    },
+    {
+      "timestamp_min": 1680.0,
+      "latency_ms": 110.17
+    },
+    {
+      "timestamp_min": 1740.0,
+      "latency_ms": 111.6
+    },
+    {
+      "timestamp_min": 1800.0,
+      "latency_ms": 111.06
+    },
+    {
+      "timestamp_min": 1860.0,
+      "latency_ms": 109.25
+    },
+    {
+      "timestamp_min": 1920.0,
+      "latency_ms": 111.59
+    },
+    {
+      "timestamp_min": 1980.0,
+      "latency_ms": 106.5
+    },
+    {
+      "timestamp_min": 2040.0,
+      "latency_ms": 103.28
+    },
+    {
+      "timestamp_min": 2100.0,
+      "latency_ms": 101.55
+    },
+    {
+      "timestamp_min": 2160.0,
+      "latency_ms": 100.78
+    },
+    {
+      "timestamp_min": 2220.0,
+      "latency_ms": 94.32
+    },
+    {
+      "timestamp_min": 2280.0,
+      "latency_ms": 92.56
+    },
+    {
+      "timestamp_min": 2340.0,
+      "latency_ms": 91.02
+    },
+    {
+      "timestamp_min": 2400.0,
+      "latency_ms": 89.01
+    },
+    {
+      "timestamp_min": 2460.0,
+      "latency_ms": 87.49
+    },
+    {
+      "timestamp_min": 2520.0,
+      "latency_ms": 85.99
+    },
+    {
+      "timestamp_min": 2580.0,
+      "latency_ms": 86.05
+    },
+    {
+      "timestamp_min": 2640.0,
+      "latency_ms": 87.79
+    },
+    {
+      "timestamp_min": 2700.0,
+      "latency_ms": 90.43
+    },
+    {
+      "timestamp_min": 2760.0,
+      "latency_ms": 93.7
+    },
+    {
+      "timestamp_min": 2820.0,
+      "latency_ms": 97.28
+    },
+    {
+      "timestamp_min": 2880.0,
+      "latency_ms": 97.75
+    },
+    {
+      "timestamp_min": 2940.0,
+      "latency_ms": 101.74
+    },
+    {
+      "timestamp_min": 3000.0,
+      "latency_ms": 104.62
+    },
+    {
+      "timestamp_min": 3060.0,
+      "latency_ms": 107.21
+    },
+    {
+      "timestamp_min": 3120.0,
+      "latency_ms": 108.34
+    },
+    {
+      "timestamp_min": 3180.0,
+      "latency_ms": 109.97
+    },
+    {
+      "timestamp_min": 3240.0,
+      "latency_ms": 111.95
+    },
+    {
+      "timestamp_min": 3300.0,
+      "latency_ms": 110.61
+    },
+    {
+      "timestamp_min": 3360.0,
+      "latency_ms": 108.84
+    },
+    {
+      "timestamp_min": 3420.0,
+      "latency_ms": 106.77
+    },
+    {
+      "timestamp_min": 3480.0,
+      "latency_ms": 103.73
+    },
+    {
+      "timestamp_min": 3540.0,
+      "latency_ms": 100.35
+    },
+    {
+      "timestamp_min": 3600.0,
+      "latency_ms": 97.82
+    },
+    {
+      "timestamp_min": 3660.0,
+      "latency_ms": 96.15
+    },
+    {
+      "timestamp_min": 3720.0,
+      "latency_ms": 95.61
+    },
+    {
+      "timestamp_min": 3780.0,
+      "latency_ms": 90.04
+    },
+    {
+      "timestamp_min": 3840.0,
+      "latency_ms": 89.07
+    },
+    {
+      "timestamp_min": 3900.0,
+      "latency_ms": 83.78
+    },
+    {
+      "timestamp_min": 3960.0,
+      "latency_ms": 88.09
+    },
+    {
+      "timestamp_min": 4020.0,
+      "latency_ms": 88.49
+    },
+    {
+      "timestamp_min": 4080.0,
+      "latency_ms": 91.31
+    },
+    {
+      "timestamp_min": 4140.0,
+      "latency_ms": 90.7
+    },
+    {
+      "timestamp_min": 4200.0,
+      "latency_ms": 92.03
+    },
+    {
+      "timestamp_min": 4260.0,
+      "latency_ms": 94.49
+    },
+    {
+      "timestamp_min": 4320.0,
+      "latency_ms": 100.19
+    },
+    {
+      "timestamp_min": 4380.0,
+      "latency_ms": 102.32
+    },
+    {
+      "timestamp_min": 4440.0,
+      "latency_ms": 104.48
+    },
+    {
+      "timestamp_min": 4500.0,
+      "latency_ms": 104.79
+    },
+    {
+      "timestamp_min": 4560.0,
+      "latency_ms": 108.53
+    },
+    {
+      "timestamp_min": 4620.0,
+      "latency_ms": 110.92
+    },
+    {
+      "timestamp_min": 4680.0,
+      "latency_ms": 109.58
+    },
+    {
+      "timestamp_min": 4740.0,
+      "latency_ms": 108.9
+    },
+    {
+      "timestamp_min": 4800.0,
+      "latency_ms": 110.85
+    },
+    {
+      "timestamp_min": 4860.0,
+      "latency_ms": 105.65
+    },
+    {
+      "timestamp_min": 4920.0,
+      "latency_ms": 103.16
+    },
+    {
+      "timestamp_min": 4980.0,
+      "latency_ms": 102.95
+    },
+    {
+      "timestamp_min": 5040.0,
+      "latency_ms": 95.85
+    },
+    {
+      "timestamp_min": 5100.0,
+      "latency_ms": 92.91
+    },
+    {
+      "timestamp_min": 5160.0,
+      "latency_ms": 92.35
+    },
+    {
+      "timestamp_min": 5220.0,
+      "latency_ms": 88.55
+    },
+    {
+      "timestamp_min": 5280.0,
+      "latency_ms": 87.41
+    },
+    {
+      "timestamp_min": 5340.0,
+      "latency_ms": 88.19
+    },
+    {
+      "timestamp_min": 5400.0,
+      "latency_ms": 87.71
+    },
+    {
+      "timestamp_min": 5460.0,
+      "latency_ms": 88.26
+    },
+    {
+      "timestamp_min": 5520.0,
+      "latency_ms": 90.35
+    },
+    {
+      "timestamp_min": 5580.0,
+      "latency_ms": 93.1
+    },
+    {
+      "timestamp_min": 5640.0,
+      "latency_ms": 90.25
+    },
+    {
+      "timestamp_min": 5700.0,
+      "latency_ms": 95.42
+    },
+    {
+      "timestamp_min": 5760.0,
+      "latency_ms": 98.82
+    },
+    {
+      "timestamp_min": 5820.0,
+      "latency_ms": 102.49
+    },
+    {
+      "timestamp_min": 5880.0,
+      "latency_ms": 102.9
+    },
+    {
+      "timestamp_min": 5940.0,
+      "latency_ms": 104.85
+    },
+    {
+      "timestamp_min": 6000.0,
+      "latency_ms": 108.85
+    },
+    {
+      "timestamp_min": 6060.0,
+      "latency_ms": 109.03
+    },
+    {
+      "timestamp_min": 6120.0,
+      "latency_ms": 107.75
+    },
+    {
+      "timestamp_min": 6180.0,
+      "latency_ms": 108.6
+    },
+    {
+      "timestamp_min": 6240.0,
+      "latency_ms": 109.08
+    },
+    {
+      "timestamp_min": 6300.0,
+      "latency_ms": 106.55
+    },
+    {
+      "timestamp_min": 6360.0,
+      "latency_ms": 104.46
+    },
+    {
+      "timestamp_min": 6420.0,
+      "latency_ms": 102.57
+    },
+    {
+      "timestamp_min": 6480.0,
+      "latency_ms": 96.85
+    },
+    {
+      "timestamp_min": 6540.0,
+      "latency_ms": 99.8
+    },
+    {
+      "timestamp_min": 6600.0,
+      "latency_ms": 93.82
+    },
+    {
+      "timestamp_min": 6660.0,
+      "latency_ms": 91.17
+    },
+    {
+      "timestamp_min": 6720.0,
+      "latency_ms": 87.06
+    },
+    {
+      "timestamp_min": 6780.0,
+      "latency_ms": 88.95
+    },
+    {
+      "timestamp_min": 6840.0,
+      "latency_ms": 87.77
+    },
+    {
+      "timestamp_min": 6900.0,
+      "latency_ms": 87.21
+    },
+    {
+      "timestamp_min": 6960.0,
+      "latency_ms": 88.3
+    },
+    {
+      "timestamp_min": 7020.0,
+      "latency_ms": 89.42
+    },
+    {
+      "timestamp_min": 7080.0,
+      "latency_ms": 95.24
+    },
+    {
+      "timestamp_min": 7140.0,
+      "latency_ms": 96.28
+    },
+    {
+      "timestamp_min": 7200.0,
+      "latency_ms": 98.38
+    },
+    {
+      "timestamp_min": 7260.0,
+      "latency_ms": 102.55
+    },
+    {
+      "timestamp_min": 7320.0,
+      "latency_ms": 103.54
+    },
+    {
+      "timestamp_min": 7380.0,
+      "latency_ms": 107.36
+    },
+    {
+      "timestamp_min": 7440.0,
+      "latency_ms": 107.76
+    },
+    {
+      "timestamp_min": 7500.0,
+      "latency_ms": 106.44
+    },
+    {
+      "timestamp_min": 7560.0,
+      "latency_ms": 108.96
+    },
+    {
+      "timestamp_min": 7620.0,
+      "latency_ms": 108.28
+    },
+    {
+      "timestamp_min": 7680.0,
+      "latency_ms": 106.75
+    },
+    {
+      "timestamp_min": 7740.0,
+      "latency_ms": 108.84
+    },
+    {
+      "timestamp_min": 7800.0,
+      "latency_ms": 103.4
+    },
+    {
+      "timestamp_min": 7860.0,
+      "latency_ms": 102.37
+    },
+    {
+      "timestamp_min": 7920.0,
+      "latency_ms": 99.5
+    },
+    {
+      "timestamp_min": 7980.0,
+      "latency_ms": 96.75
+    },
+    {
+      "timestamp_min": 8040.0,
+      "latency_ms": 91.5
+    },
+    {
+      "timestamp_min": 8100.0,
+      "latency_ms": 90.28
+    },
+    {
+      "timestamp_min": 8160.0,
+      "latency_ms": 90.26
+    },
+    {
+      "timestamp_min": 8220.0,
+      "latency_ms": 88.18
+    },
+    {
+      "timestamp_min": 8280.0,
+      "latency_ms": 86.55
+    },
+    {
+      "timestamp_min": 8340.0,
+      "latency_ms": 88.25
+    },
+    {
+      "timestamp_min": 8400.0,
+      "latency_ms": 87.25
+    },
+    {
+      "timestamp_min": 8460.0,
+      "latency_ms": 93.47
+    },
+    {
+      "timestamp_min": 8520.0,
+      "latency_ms": 94.02
+    },
+    {
+      "timestamp_min": 8580.0,
+      "latency_ms": 96.15
+    },
+    {
+      "timestamp_min": 8640.0,
+      "latency_ms": 98.66
+    },
+    {
+      "timestamp_min": 8700.0,
+      "latency_ms": 101.18
+    },
+    {
+      "timestamp_min": 8760.0,
+      "latency_ms": 102.75
+    },
+    {
+      "timestamp_min": 8820.0,
+      "latency_ms": 106.83
+    },
+    {
+      "timestamp_min": 8880.0,
+      "latency_ms": 109.15
+    },
+    {
+      "timestamp_min": 8940.0,
+      "latency_ms": 111.5
+    },
+    {
+      "timestamp_min": 9000.0,
+      "latency_ms": 111.71
+    },
+    {
+      "timestamp_min": 9060.0,
+      "latency_ms": 110.33
+    },
+    {
+      "timestamp_min": 9120.0,
+      "latency_ms": 110.63
+    },
+    {
+      "timestamp_min": 9180.0,
+      "latency_ms": 108.18
+    },
+    {
+      "timestamp_min": 9240.0,
+      "latency_ms": 105.13
+    },
+    {
+      "timestamp_min": 9300.0,
+      "latency_ms": 103.27
+    },
+    {
+      "timestamp_min": 9360.0,
+      "latency_ms": 98.36
+    },
+    {
+      "timestamp_min": 9420.0,
+      "latency_ms": 94.17
+    },
+    {
+      "timestamp_min": 9480.0,
+      "latency_ms": 91.42
+    },
+    {
+      "timestamp_min": 9540.0,
+      "latency_ms": 93.99
+    },
+    {
+      "timestamp_min": 9600.0,
+      "latency_ms": 88.95
+    },
+    {
+      "timestamp_min": 9660.0,
+      "latency_ms": 89.42
+    },
+    {
+      "timestamp_min": 9720.0,
+      "latency_ms": 87.47
+    },
+    {
+      "timestamp_min": 9780.0,
+      "latency_ms": 86.97
+    },
+    {
+      "timestamp_min": 9840.0,
+      "latency_ms": 89.4
+    },
+    {
+      "timestamp_min": 9900.0,
+      "latency_ms": 89.95
+    },
+    {
+      "timestamp_min": 9960.0,
+      "latency_ms": 92.38
+    },
+    {
+      "timestamp_min": 10020.0,
+      "latency_ms": 95.29
+    },
+    {
+      "timestamp_min": 10080.0,
+      "latency_ms": 99.16
+    },
+    {
+      "timestamp_min": 10140.0,
+      "latency_ms": 101.98
+    },
+    {
+      "timestamp_min": 10200.0,
+      "latency_ms": 106.55
+    },
+    {
+      "timestamp_min": 10260.0,
+      "latency_ms": 109.8
+    },
+    {
+      "timestamp_min": 10320.0,
+      "latency_ms": 107.52
+    },
+    {
+      "timestamp_min": 10380.0,
+      "latency_ms": 109.46
+    },
+    {
+      "timestamp_min": 10440.0,
+      "latency_ms": 108.59
+    },
+    {
+      "timestamp_min": 10500.0,
+      "latency_ms": 110.99
+    },
+    {
+      "timestamp_min": 10560.0,
+      "latency_ms": 109.12
+    },
+    {
+      "timestamp_min": 10620.0,
+      "latency_ms": 108.11
+    },
+    {
+      "timestamp_min": 10680.0,
+      "latency_ms": 103.74
+    },
+    {
+      "timestamp_min": 10740.0,
+      "latency_ms": 101.05
+    },
+    {
+      "timestamp_min": 10800.0,
+      "latency_ms": 98.22
+    },
+    {
+      "timestamp_min": 10860.0,
+      "latency_ms": 94.43
+    },
+    {
+      "timestamp_min": 10920.0,
+      "latency_ms": 93.47
+    },
+    {
+      "timestamp_min": 10980.0,
+      "latency_ms": 90.3
+    },
+    {
+      "timestamp_min": 11040.0,
+      "latency_ms": 88.6
+    },
+    {
+      "timestamp_min": 11100.0,
+      "latency_ms": 87.5
+    },
+    {
+      "timestamp_min": 11160.0,
+      "latency_ms": 88.33
+    },
+    {
+      "timestamp_min": 11220.0,
+      "latency_ms": 87.7
+    },
+    {
+      "timestamp_min": 11280.0,
+      "latency_ms": 87.87
+    },
+    {
+      "timestamp_min": 11340.0,
+      "latency_ms": 91.7
+    },
+    {
+      "timestamp_min": 11400.0,
+      "latency_ms": 93.0
+    },
+    {
+      "timestamp_min": 11460.0,
+      "latency_ms": 94.89
+    },
+    {
+      "timestamp_min": 11520.0,
+      "latency_ms": 99.16
+    },
+    {
+      "timestamp_min": 11580.0,
+      "latency_ms": 101.6
+    },
+    {
+      "timestamp_min": 11640.0,
+      "latency_ms": 102.59
+    },
+    {
+      "timestamp_min": 11700.0,
+      "latency_ms": 108.02
+    },
+    {
+      "timestamp_min": 11760.0,
+      "latency_ms": 107.97
+    },
+    {
+      "timestamp_min": 11820.0,
+      "latency_ms": 109.36
+    },
+    {
+      "timestamp_min": 11880.0,
+      "latency_ms": 111.0
+    },
+    {
+      "timestamp_min": 11940.0,
+      "latency_ms": 110.69
+    },
+    {
+      "timestamp_min": 12000.0,
+      "latency_ms": 110.03
+    },
+    {
+      "timestamp_min": 12060.0,
+      "latency_ms": 106.58
+    },
+    {
+      "timestamp_min": 12120.0,
+      "latency_ms": 105.58
+    },
+    {
+      "timestamp_min": 12180.0,
+      "latency_ms": 100.8
+    },
+    {
+      "timestamp_min": 12240.0,
+      "latency_ms": 98.3
+    },
+    {
+      "timestamp_min": 12300.0,
+      "latency_ms": 95.8
+    },
+    {
+      "timestamp_min": 12360.0,
+      "latency_ms": 94.02
+    },
+    {
+      "timestamp_min": 12420.0,
+      "latency_ms": 89.93
+    },
+    {
+      "timestamp_min": 12480.0,
+      "latency_ms": 89.79
+    },
+    {
+      "timestamp_min": 12540.0,
+      "latency_ms": 86.13
+    },
+    {
+      "timestamp_min": 12600.0,
+      "latency_ms": 86.32
+    },
+    {
+      "timestamp_min": 12660.0,
+      "latency_ms": 89.36
+    },
+    {
+      "timestamp_min": 12720.0,
+      "latency_ms": 87.83
+    },
+    {
+      "timestamp_min": 12780.0,
+      "latency_ms": 89.8
+    },
+    {
+      "timestamp_min": 12840.0,
+      "latency_ms": 93.17
+    },
+    {
+      "timestamp_min": 12900.0,
+      "latency_ms": 97.51
+    },
+    {
+      "timestamp_min": 12960.0,
+      "latency_ms": 99.72
+    },
+    {
+      "timestamp_min": 13020.0,
+      "latency_ms": 102.46
+    },
+    {
+      "timestamp_min": 13080.0,
+      "latency_ms": 104.36
+    },
+    {
+      "timestamp_min": 13140.0,
+      "latency_ms": 104.47
+    },
+    {
+      "timestamp_min": 13200.0,
+      "latency_ms": 109.45
+    },
+    {
+      "timestamp_min": 13260.0,
+      "latency_ms": 109.85
+    },
+    {
+      "timestamp_min": 13320.0,
+      "latency_ms": 112.15
+    },
+    {
+      "timestamp_min": 13380.0,
+      "latency_ms": 111.55
+    },
+    {
+      "timestamp_min": 13440.0,
+      "latency_ms": 108.83
+    },
+    {
+      "timestamp_min": 13500.0,
+      "latency_ms": 104.91
+    },
+    {
+      "timestamp_min": 13560.0,
+      "latency_ms": 103.92
+    },
+    {
+      "timestamp_min": 13620.0,
+      "latency_ms": 100.7
+    },
+    {
+      "timestamp_min": 13680.0,
+      "latency_ms": 96.33
+    },
+    {
+      "timestamp_min": 13740.0,
+      "latency_ms": 96.98
+    },
+    {
+      "timestamp_min": 13800.0,
+      "latency_ms": 94.05
+    },
+    {
+      "timestamp_min": 13860.0,
+      "latency_ms": 89.76
+    },
+    {
+      "timestamp_min": 13920.0,
+      "latency_ms": 86.2
+    },
+    {
+      "timestamp_min": 13980.0,
+      "latency_ms": 87.3
+    },
+    {
+      "timestamp_min": 14040.0,
+      "latency_ms": 85.71
+    },
+    {
+      "timestamp_min": 14100.0,
+      "latency_ms": 88.74
+    },
+    {
+      "timestamp_min": 14160.0,
+      "latency_ms": 89.49
+    },
+    {
+      "timestamp_min": 14220.0,
+      "latency_ms": 90.63
+    },
+    {
+      "timestamp_min": 14280.0,
+      "latency_ms": 93.2
+    },
+    {
+      "timestamp_min": 14340.0,
+      "latency_ms": 94.71
+    },
+    {
+      "timestamp_min": 14400.0,
+      "latency_ms": 97.94
+    },
+    {
+      "timestamp_min": 14460.0,
+      "latency_ms": 104.62
+    },
+    {
+      "timestamp_min": 14520.0,
+      "latency_ms": 105.31
+    },
+    {
+      "timestamp_min": 14580.0,
+      "latency_ms": 105.56
+    },
+    {
+      "timestamp_min": 14640.0,
+      "latency_ms": 108.87
+    },
+    {
+      "timestamp_min": 14700.0,
+      "latency_ms": 110.38
+    },
+    {
+      "timestamp_min": 14760.0,
+      "latency_ms": 111.22
+    },
+    {
+      "timestamp_min": 14820.0,
+      "latency_ms": 108.71
+    },
+    {
+      "timestamp_min": 14880.0,
+      "latency_ms": 109.91
+    },
+    {
+      "timestamp_min": 14940.0,
+      "latency_ms": 108.5
+    },
+    {
+      "timestamp_min": 15000.0,
+      "latency_ms": 103.95
+    },
+    {
+      "timestamp_min": 15060.0,
+      "latency_ms": 100.19
+    },
+    {
+      "timestamp_min": 15120.0,
+      "latency_ms": 98.77
+    },
+    {
+      "timestamp_min": 15180.0,
+      "latency_ms": 97.61
+    },
+    {
+      "timestamp_min": 15240.0,
+      "latency_ms": 91.55
+    },
+    {
+      "timestamp_min": 15300.0,
+      "latency_ms": 89.84
+    },
+    {
+      "timestamp_min": 15360.0,
+      "latency_ms": 90.97
+    },
+    {
+      "timestamp_min": 15420.0,
+      "latency_ms": 88.49
+    },
+    {
+      "timestamp_min": 15480.0,
+      "latency_ms": 87.59
+    },
+    {
+      "timestamp_min": 15540.0,
+      "latency_ms": 85.9
+    },
+    {
+      "timestamp_min": 15600.0,
+      "latency_ms": 88.21
+    },
+    {
+      "timestamp_min": 15660.0,
+      "latency_ms": 91.58
+    },
+    {
+      "timestamp_min": 15720.0,
+      "latency_ms": 92.55
+    },
+    {
+      "timestamp_min": 15780.0,
+      "latency_ms": 97.74
+    },
+    {
+      "timestamp_min": 15840.0,
+      "latency_ms": 98.91
+    },
+    {
+      "timestamp_min": 15900.0,
+      "latency_ms": 102.38
+    },
+    {
+      "timestamp_min": 15960.0,
+      "latency_ms": 101.92
+    },
+    {
+      "timestamp_min": 16020.0,
+      "latency_ms": 105.96
+    },
+    {
+      "timestamp_min": 16080.0,
+      "latency_ms": 110.69
+    },
+    {
+      "timestamp_min": 16140.0,
+      "latency_ms": 110.37
+    },
+    {
+      "timestamp_min": 16200.0,
+      "latency_ms": 109.59
+    },
+    {
+      "timestamp_min": 16260.0,
+      "latency_ms": 107.37
+    },
+    {
+      "timestamp_min": 16320.0,
+      "latency_ms": 111.83
+    },
+    {
+      "timestamp_min": 16380.0,
+      "latency_ms": 106.03
+    },
+    {
+      "timestamp_min": 16440.0,
+      "latency_ms": 105.23
+    },
+    {
+      "timestamp_min": 16500.0,
+      "latency_ms": 101.32
+    },
+    {
+      "timestamp_min": 16560.0,
+      "latency_ms": 97.43
+    },
+    {
+      "timestamp_min": 16620.0,
+      "latency_ms": 96.2
+    },
+    {
+      "timestamp_min": 16680.0,
+      "latency_ms": 93.03
+    },
+    {
+      "timestamp_min": 16740.0,
+      "latency_ms": 92.22
+    },
+    {
+      "timestamp_min": 16800.0,
+      "latency_ms": 88.49
+    },
+    {
+      "timestamp_min": 16860.0,
+      "latency_ms": 87.64
+    },
+    {
+      "timestamp_min": 16920.0,
+      "latency_ms": 85.38
+    },
+    {
+      "timestamp_min": 16980.0,
+      "latency_ms": 87.96
+    },
+    {
+      "timestamp_min": 17040.0,
+      "latency_ms": 88.68
+    },
+    {
+      "timestamp_min": 17100.0,
+      "latency_ms": 93.53
+    },
+    {
+      "timestamp_min": 17160.0,
+      "latency_ms": 92.47
+    },
+    {
+      "timestamp_min": 17220.0,
+      "latency_ms": 96.68
+    },
+    {
+      "timestamp_min": 17280.0,
+      "latency_ms": 98.03
+    },
+    {
+      "timestamp_min": 17340.0,
+      "latency_ms": 101.97
+    },
+    {
+      "timestamp_min": 17400.0,
+      "latency_ms": 103.1
+    },
+    {
+      "timestamp_min": 17460.0,
+      "latency_ms": 107.45
+    },
+    {
+      "timestamp_min": 17520.0,
+      "latency_ms": 112.43
+    },
+    {
+      "timestamp_min": 17580.0,
+      "latency_ms": 109.14
+    },
+    {
+      "timestamp_min": 17640.0,
+      "latency_ms": 108.74
+    },
+    {
+      "timestamp_min": 17700.0,
+      "latency_ms": 110.67
+    },
+    {
+      "timestamp_min": 17760.0,
+      "latency_ms": 108.82
+    },
+    {
+      "timestamp_min": 17820.0,
+      "latency_ms": 105.71
+    },
+    {
+      "timestamp_min": 17880.0,
+      "latency_ms": 103.53
+    },
+    {
+      "timestamp_min": 17940.0,
+      "latency_ms": 100.03
+    },
+    {
+      "timestamp_min": 18000.0,
+      "latency_ms": 98.43
+    },
+    {
+      "timestamp_min": 18060.0,
+      "latency_ms": 96.9
+    },
+    {
+      "timestamp_min": 18120.0,
+      "latency_ms": 92.86
+    },
+    {
+      "timestamp_min": 18180.0,
+      "latency_ms": 91.25
+    },
+    {
+      "timestamp_min": 18240.0,
+      "latency_ms": 88.23
+    },
+    {
+      "timestamp_min": 18300.0,
+      "latency_ms": 87.47
+    },
+    {
+      "timestamp_min": 18360.0,
+      "latency_ms": 85.78
+    },
+    {
+      "timestamp_min": 18420.0,
+      "latency_ms": 85.89
+    },
+    {
+      "timestamp_min": 18480.0,
+      "latency_ms": 89.29
+    },
+    {
+      "timestamp_min": 18540.0,
+      "latency_ms": 88.79
+    },
+    {
+      "timestamp_min": 18600.0,
+      "latency_ms": 90.01
+    },
+    {
+      "timestamp_min": 18660.0,
+      "latency_ms": 94.45
+    },
+    {
+      "timestamp_min": 18720.0,
+      "latency_ms": 98.29
+    },
+    {
+      "timestamp_min": 18780.0,
+      "latency_ms": 100.1
+    },
+    {
+      "timestamp_min": 18840.0,
+      "latency_ms": 102.72
+    },
+    {
+      "timestamp_min": 18900.0,
+      "latency_ms": 106.7
+    },
+    {
+      "timestamp_min": 18960.0,
+      "latency_ms": 106.17
+    },
+    {
+      "timestamp_min": 19020.0,
+      "latency_ms": 110.76
+    },
+    {
+      "timestamp_min": 19080.0,
+      "latency_ms": 110.42
+    },
+    {
+      "timestamp_min": 19140.0,
+      "latency_ms": 111.6
+    },
+    {
+      "timestamp_min": 19200.0,
+      "latency_ms": 108.5
+    },
+    {
+      "timestamp_min": 19260.0,
+      "latency_ms": 106.11
+    },
+    {
+      "timestamp_min": 19320.0,
+      "latency_ms": 104.18
+    },
+    {
+      "timestamp_min": 19380.0,
+      "latency_ms": 102.06
+    },
+    {
+      "timestamp_min": 19440.0,
+      "latency_ms": 97.76
+    },
+    {
+      "timestamp_min": 19500.0,
+      "latency_ms": 92.81
+    },
+    {
+      "timestamp_min": 19560.0,
+      "latency_ms": 92.59
+    },
+    {
+      "timestamp_min": 19620.0,
+      "latency_ms": 89.35
+    },
+    {
+      "timestamp_min": 19680.0,
+      "latency_ms": 88.59
+    },
+    {
+      "timestamp_min": 19740.0,
+      "latency_ms": 87.38
+    },
+    {
+      "timestamp_min": 19800.0,
+      "latency_ms": 86.17
+    },
+    {
+      "timestamp_min": 19860.0,
+      "latency_ms": 87.68
+    },
+    {
+      "timestamp_min": 19920.0,
+      "latency_ms": 90.64
+    },
+    {
+      "timestamp_min": 19980.0,
+      "latency_ms": 90.33
+    },
+    {
+      "timestamp_min": 20040.0,
+      "latency_ms": 93.19
+    },
+    {
+      "timestamp_min": 20100.0,
+      "latency_ms": 96.72
+    },
+    {
+      "timestamp_min": 20160.0,
+      "latency_ms": 95.64
+    },
+    {
+      "timestamp_min": 20220.0,
+      "latency_ms": 100.83
+    },
+    {
+      "timestamp_min": 20280.0,
+      "latency_ms": 105.33
+    },
+    {
+      "timestamp_min": 20340.0,
+      "latency_ms": 108.22
+    },
+    {
+      "timestamp_min": 20400.0,
+      "latency_ms": 107.8
+    },
+    {
+      "timestamp_min": 20460.0,
+      "latency_ms": 110.09
+    },
+    {
+      "timestamp_min": 20520.0,
+      "latency_ms": 112.55
+    },
+    {
+      "timestamp_min": 20580.0,
+      "latency_ms": 109.74
+    },
+    {
+      "timestamp_min": 20640.0,
+      "latency_ms": 106.96
+    },
+    {
+      "timestamp_min": 20700.0,
+      "latency_ms": 104.15
+    },
+    {
+      "timestamp_min": 20760.0,
+      "latency_ms": 105.49
+    },
+    {
+      "timestamp_min": 20820.0,
+      "latency_ms": 103.36
+    },
+    {
+      "timestamp_min": 20880.0,
+      "latency_ms": 100.18
+    },
+    {
+      "timestamp_min": 20940.0,
+      "latency_ms": 97.96
+    },
+    {
+      "timestamp_min": 21000.0,
+      "latency_ms": 91.69
+    },
+    {
+      "timestamp_min": 21060.0,
+      "latency_ms": 90.77
+    },
+    {
+      "timestamp_min": 21120.0,
+      "latency_ms": 89.09
+    },
+    {
+      "timestamp_min": 21180.0,
+      "latency_ms": 85.96
+    },
+    {
+      "timestamp_min": 21240.0,
+      "latency_ms": 85.39
+    },
+    {
+      "timestamp_min": 21300.0,
+      "latency_ms": 87.29
+    },
+    {
+      "timestamp_min": 21360.0,
+      "latency_ms": 88.2
+    },
+    {
+      "timestamp_min": 21420.0,
+      "latency_ms": 89.88
+    },
+    {
+      "timestamp_min": 21480.0,
+      "latency_ms": 92.79
+    },
+    {
+      "timestamp_min": 21540.0,
+      "latency_ms": 98.72
+    },
+    {
+      "timestamp_min": 21600.0,
+      "latency_ms": 96.27
+    },
+    {
+      "timestamp_min": 21660.0,
+      "latency_ms": 100.9
+    },
+    {
+      "timestamp_min": 21720.0,
+      "latency_ms": 103.94
+    },
+    {
+      "timestamp_min": 21780.0,
+      "latency_ms": 107.78
+    },
+    {
+      "timestamp_min": 21840.0,
+      "latency_ms": 110.43
+    },
+    {
+      "timestamp_min": 21900.0,
+      "latency_ms": 108.94
+    },
+    {
+      "timestamp_min": 21960.0,
+      "latency_ms": 108.43
+    },
+    {
+      "timestamp_min": 22020.0,
+      "latency_ms": 109.39
+    },
+    {
+      "timestamp_min": 22080.0,
+      "latency_ms": 108.71
+    },
+    {
+      "timestamp_min": 22140.0,
+      "latency_ms": 106.2
+    },
+    {
+      "timestamp_min": 22200.0,
+      "latency_ms": 104.31
+    },
+    {
+      "timestamp_min": 22260.0,
+      "latency_ms": 99.4
+    },
+    {
+      "timestamp_min": 22320.0,
+      "latency_ms": 99.69
+    },
+    {
+      "timestamp_min": 22380.0,
+      "latency_ms": 96.51
+    },
+    {
+      "timestamp_min": 22440.0,
+      "latency_ms": 93.89
+    },
+    {
+      "timestamp_min": 22500.0,
+      "latency_ms": 91.91
+    },
+    {
+      "timestamp_min": 22560.0,
+      "latency_ms": 88.29
+    },
+    {
+      "timestamp_min": 22620.0,
+      "latency_ms": 89.9
+    },
+    {
+      "timestamp_min": 22680.0,
+      "latency_ms": 86.69
+    },
+    {
+      "timestamp_min": 22740.0,
+      "latency_ms": 87.91
+    },
+    {
+      "timestamp_min": 22800.0,
+      "latency_ms": 91.31
+    },
+    {
+      "timestamp_min": 22860.0,
+      "latency_ms": 89.32
+    },
+    {
+      "timestamp_min": 22920.0,
+      "latency_ms": 93.2
+    },
+    {
+      "timestamp_min": 22980.0,
+      "latency_ms": 97.71
+    },
+    {
+      "timestamp_min": 23040.0,
+      "latency_ms": 99.36
+    },
+    {
+      "timestamp_min": 23100.0,
+      "latency_ms": 100.7
+    },
+    {
+      "timestamp_min": 23160.0,
+      "latency_ms": 105.12
+    },
+    {
+      "timestamp_min": 23220.0,
+      "latency_ms": 105.8
+    },
+    {
+      "timestamp_min": 23280.0,
+      "latency_ms": 107.37
+    },
+    {
+      "timestamp_min": 23340.0,
+      "latency_ms": 109.08
+    },
+    {
+      "timestamp_min": 23400.0,
+      "latency_ms": 109.87
+    },
+    {
+      "timestamp_min": 23460.0,
+      "latency_ms": 110.9
+    },
+    {
+      "timestamp_min": 23520.0,
+      "latency_ms": 110.32
+    },
+    {
+      "timestamp_min": 23580.0,
+      "latency_ms": 106.69
+    },
+    {
+      "timestamp_min": 23640.0,
+      "latency_ms": 103.2
+    },
+    {
+      "timestamp_min": 23700.0,
+      "latency_ms": 102.69
+    },
+    {
+      "timestamp_min": 23760.0,
+      "latency_ms": 96.37
+    },
+    {
+      "timestamp_min": 23820.0,
+      "latency_ms": 94.3
+    },
+    {
+      "timestamp_min": 23880.0,
+      "latency_ms": 94.05
+    },
+    {
+      "timestamp_min": 23940.0,
+      "latency_ms": 90.46
+    },
+    {
+      "timestamp_min": 24000.0,
+      "latency_ms": 89.18
+    },
+    {
+      "timestamp_min": 24060.0,
+      "latency_ms": 87.53
+    },
+    {
+      "timestamp_min": 24120.0,
+      "latency_ms": 85.87
+    },
+    {
+      "timestamp_min": 24180.0,
+      "latency_ms": 84.3
+    },
+    {
+      "timestamp_min": 24240.0,
+      "latency_ms": 88.29
+    },
+    {
+      "timestamp_min": 24300.0,
+      "latency_ms": 91.56
+    },
+    {
+      "timestamp_min": 24360.0,
+      "latency_ms": 94.48
+    },
+    {
+      "timestamp_min": 24420.0,
+      "latency_ms": 97.23
+    },
+    {
+      "timestamp_min": 24480.0,
+      "latency_ms": 98.98
+    },
+    {
+      "timestamp_min": 24540.0,
+      "latency_ms": 101.0
+    },
+    {
+      "timestamp_min": 24600.0,
+      "latency_ms": 104.28
+    },
+    {
+      "timestamp_min": 24660.0,
+      "latency_ms": 108.02
+    },
+    {
+      "timestamp_min": 24720.0,
+      "latency_ms": 107.93
+    },
+    {
+      "timestamp_min": 24780.0,
+      "latency_ms": 108.38
+    },
+    {
+      "timestamp_min": 24840.0,
+      "latency_ms": 108.22
+    },
+    {
+      "timestamp_min": 24900.0,
+      "latency_ms": 111.21
+    },
+    {
+      "timestamp_min": 24960.0,
+      "latency_ms": 105.47
+    },
+    {
+      "timestamp_min": 25020.0,
+      "latency_ms": 107.43
+    },
+    {
+      "timestamp_min": 25080.0,
+      "latency_ms": 103.31
+    },
+    {
+      "timestamp_min": 25140.0,
+      "latency_ms": 99.74
+    },
+    {
+      "timestamp_min": 25200.0,
+      "latency_ms": 96.97
+    },
+    {
+      "timestamp_min": 25260.0,
+      "latency_ms": 95.36
+    },
+    {
+      "timestamp_min": 25320.0,
+      "latency_ms": 93.76
+    },
+    {
+      "timestamp_min": 25380.0,
+      "latency_ms": 91.11
+    },
+    {
+      "timestamp_min": 25440.0,
+      "latency_ms": 88.07
+    },
+    {
+      "timestamp_min": 25500.0,
+      "latency_ms": 86.58
+    },
+    {
+      "timestamp_min": 25560.0,
+      "latency_ms": 88.39
+    },
+    {
+      "timestamp_min": 25620.0,
+      "latency_ms": 88.99
+    },
+    {
+      "timestamp_min": 25680.0,
+      "latency_ms": 87.84
+    },
+    {
+      "timestamp_min": 25740.0,
+      "latency_ms": 90.26
+    },
+    {
+      "timestamp_min": 25800.0,
+      "latency_ms": 92.8
+    },
+    {
+      "timestamp_min": 25860.0,
+      "latency_ms": 96.54
+    },
+    {
+      "timestamp_min": 25920.0,
+      "latency_ms": 96.07
+    },
+    {
+      "timestamp_min": 25980.0,
+      "latency_ms": 101.56
+    },
+    {
+      "timestamp_min": 26040.0,
+      "latency_ms": 106.03
+    },
+    {
+      "timestamp_min": 26100.0,
+      "latency_ms": 105.62
+    },
+    {
+      "timestamp_min": 26160.0,
+      "latency_ms": 110.75
+    },
+    {
+      "timestamp_min": 26220.0,
+      "latency_ms": 107.4
+    },
+    {
+      "timestamp_min": 26280.0,
+      "latency_ms": 107.28
+    },
+    {
+      "timestamp_min": 26340.0,
+      "latency_ms": 109.48
+    },
+    {
+      "timestamp_min": 26400.0,
+      "latency_ms": 108.38
+    },
+    {
+      "timestamp_min": 26460.0,
+      "latency_ms": 106.69
+    },
+    {
+      "timestamp_min": 26520.0,
+      "latency_ms": 104.81
+    },
+    {
+      "timestamp_min": 26580.0,
+      "latency_ms": 101.32
+    },
+    {
+      "timestamp_min": 26640.0,
+      "latency_ms": 98.69
+    },
+    {
+      "timestamp_min": 26700.0,
+      "latency_ms": 97.23
+    },
+    {
+      "timestamp_min": 26760.0,
+      "latency_ms": 93.49
+    },
+    {
+      "timestamp_min": 26820.0,
+      "latency_ms": 90.11
+    },
+    {
+      "timestamp_min": 26880.0,
+      "latency_ms": 87.79
+    },
+    {
+      "timestamp_min": 26940.0,
+      "latency_ms": 90.6
+    },
+    {
+      "timestamp_min": 27000.0,
+      "latency_ms": 85.98
+    },
+    {
+      "timestamp_min": 27060.0,
+      "latency_ms": 87.93
+    },
+    {
+      "timestamp_min": 27120.0,
+      "latency_ms": 87.74
+    },
+    {
+      "timestamp_min": 27180.0,
+      "latency_ms": 91.28
+    },
+    {
+      "timestamp_min": 27240.0,
+      "latency_ms": 92.27
+    },
+    {
+      "timestamp_min": 27300.0,
+      "latency_ms": 92.95
+    },
+    {
+      "timestamp_min": 27360.0,
+      "latency_ms": 99.99
+    },
+    {
+      "timestamp_min": 27420.0,
+      "latency_ms": 100.49
+    },
+    {
+      "timestamp_min": 27480.0,
+      "latency_ms": 106.49
+    },
+    {
+      "timestamp_min": 27540.0,
+      "latency_ms": 107.6
+    },
+    {
+      "timestamp_min": 27600.0,
+      "latency_ms": 110.19
+    },
+    {
+      "timestamp_min": 27660.0,
+      "latency_ms": 109.75
+    },
+    {
+      "timestamp_min": 27720.0,
+      "latency_ms": 109.22
+    },
+    {
+      "timestamp_min": 27780.0,
+      "latency_ms": 108.74
+    },
+    {
+      "timestamp_min": 27840.0,
+      "latency_ms": 110.26
+    },
+    {
+      "timestamp_min": 27900.0,
+      "latency_ms": 105.59
+    },
+    {
+      "timestamp_min": 27960.0,
+      "latency_ms": 105.19
+    },
+    {
+      "timestamp_min": 28020.0,
+      "latency_ms": 99.97
+    },
+    {
+      "timestamp_min": 28080.0,
+      "latency_ms": 98.16
+    },
+    {
+      "timestamp_min": 28140.0,
+      "latency_ms": 94.17
+    },
+    {
+      "timestamp_min": 28200.0,
+      "latency_ms": 95.98
+    },
+    {
+      "timestamp_min": 28260.0,
+      "latency_ms": 90.15
+    },
+    {
+      "timestamp_min": 28320.0,
+      "latency_ms": 87.65
+    },
+    {
+      "timestamp_min": 28380.0,
+      "latency_ms": 87.84
+    },
+    {
+      "timestamp_min": 28440.0,
+      "latency_ms": 86.86
+    },
+    {
+      "timestamp_min": 28500.0,
+      "latency_ms": 87.15
+    },
+    {
+      "timestamp_min": 28560.0,
+      "latency_ms": 87.32
+    },
+    {
+      "timestamp_min": 28620.0,
+      "latency_ms": 92.6
+    },
+    {
+      "timestamp_min": 28680.0,
+      "latency_ms": 92.75
+    },
+    {
+      "timestamp_min": 28740.0,
+      "latency_ms": 94.33
+    },
+    {
+      "timestamp_min": 28800.0,
+      "latency_ms": 97.09
+    },
+    {
+      "timestamp_min": 28860.0,
+      "latency_ms": 98.94
+    },
+    {
+      "timestamp_min": 28920.0,
+      "latency_ms": 105.26
+    },
+    {
+      "timestamp_min": 28980.0,
+      "latency_ms": 106.81
+    },
+    {
+      "timestamp_min": 29040.0,
+      "latency_ms": 109.84
+    },
+    {
+      "timestamp_min": 29100.0,
+      "latency_ms": 108.3
+    },
+    {
+      "timestamp_min": 29160.0,
+      "latency_ms": 109.52
+    },
+    {
+      "timestamp_min": 29220.0,
+      "latency_ms": 109.59
+    },
+    {
+      "timestamp_min": 29280.0,
+      "latency_ms": 107.98
+    },
+    {
+      "timestamp_min": 29340.0,
+      "latency_ms": 106.19
+    },
+    {
+      "timestamp_min": 29400.0,
+      "latency_ms": 104.25
+    },
+    {
+      "timestamp_min": 29460.0,
+      "latency_ms": 99.94
+    },
+    {
+      "timestamp_min": 29520.0,
+      "latency_ms": 98.64
+    },
+    {
+      "timestamp_min": 29580.0,
+      "latency_ms": 95.34
+    },
+    {
+      "timestamp_min": 29640.0,
+      "latency_ms": 91.68
+    },
+    {
+      "timestamp_min": 29700.0,
+      "latency_ms": 91.56
+    },
+    {
+      "timestamp_min": 29760.0,
+      "latency_ms": 87.7
+    },
+    {
+      "timestamp_min": 29820.0,
+      "latency_ms": 85.52
+    },
+    {
+      "timestamp_min": 29880.0,
+      "latency_ms": 88.05
+    },
+    {
+      "timestamp_min": 29940.0,
+      "latency_ms": 85.26
+    },
+    {
+      "timestamp_min": 30000.0,
+      "latency_ms": 87.6
+    },
+    {
+      "timestamp_min": 30060.0,
+      "latency_ms": 89.85
+    },
+    {
+      "timestamp_min": 30120.0,
+      "latency_ms": 90.6
+    },
+    {
+      "timestamp_min": 30180.0,
+      "latency_ms": 95.48
+    },
+    {
+      "timestamp_min": 30240.0,
+      "latency_ms": 99.1
+    },
+    {
+      "timestamp_min": 30300.0,
+      "latency_ms": 98.27
+    },
+    {
+      "timestamp_min": 30360.0,
+      "latency_ms": 104.68
+    },
+    {
+      "timestamp_min": 30420.0,
+      "latency_ms": 108.11
+    },
+    {
+      "timestamp_min": 30480.0,
+      "latency_ms": 106.71
+    },
+    {
+      "timestamp_min": 30540.0,
+      "latency_ms": 109.67
+    },
+    {
+      "timestamp_min": 30600.0,
+      "latency_ms": 108.59
+    },
+    {
+      "timestamp_min": 30660.0,
+      "latency_ms": 109.33
+    },
+    {
+      "timestamp_min": 30720.0,
+      "latency_ms": 109.83
+    },
+    {
+      "timestamp_min": 30780.0,
+      "latency_ms": 108.64
+    },
+    {
+      "timestamp_min": 30840.0,
+      "latency_ms": 103.68
+    },
+    {
+      "timestamp_min": 30900.0,
+      "latency_ms": 103.43
+    },
+    {
+      "timestamp_min": 30960.0,
+      "latency_ms": 100.11
+    },
+    {
+      "timestamp_min": 31020.0,
+      "latency_ms": 94.92
+    },
+    {
+      "timestamp_min": 31080.0,
+      "latency_ms": 93.85
+    },
+    {
+      "timestamp_min": 31140.0,
+      "latency_ms": 91.95
+    },
+    {
+      "timestamp_min": 31200.0,
+      "latency_ms": 89.16
+    },
+    {
+      "timestamp_min": 31260.0,
+      "latency_ms": 90.65
+    },
+    {
+      "timestamp_min": 31320.0,
+      "latency_ms": 83.24
+    },
+    {
+      "timestamp_min": 31380.0,
+      "latency_ms": 88.43
+    },
+    {
+      "timestamp_min": 31440.0,
+      "latency_ms": 87.9
+    },
+    {
+      "timestamp_min": 31500.0,
+      "latency_ms": 90.79
+    },
+    {
+      "timestamp_min": 31560.0,
+      "latency_ms": 92.81
+    },
+    {
+      "timestamp_min": 31620.0,
+      "latency_ms": 98.13
+    },
+    {
+      "timestamp_min": 31680.0,
+      "latency_ms": 99.84
+    },
+    {
+      "timestamp_min": 31740.0,
+      "latency_ms": 99.17
+    },
+    {
+      "timestamp_min": 31800.0,
+      "latency_ms": 104.2
+    },
+    {
+      "timestamp_min": 31860.0,
+      "latency_ms": 104.33
+    },
+    {
+      "timestamp_min": 31920.0,
+      "latency_ms": 108.73
+    },
+    {
+      "timestamp_min": 31980.0,
+      "latency_ms": 111.05
+    },
+    {
+      "timestamp_min": 32040.0,
+      "latency_ms": 110.83
+    },
+    {
+      "timestamp_min": 32100.0,
+      "latency_ms": 111.0
+    },
+    {
+      "timestamp_min": 32160.0,
+      "latency_ms": 107.79
+    },
+    {
+      "timestamp_min": 32220.0,
+      "latency_ms": 106.38
+    },
+    {
+      "timestamp_min": 32280.0,
+      "latency_ms": 104.68
+    },
+    {
+      "timestamp_min": 32340.0,
+      "latency_ms": 103.26
+    },
+    {
+      "timestamp_min": 32400.0,
+      "latency_ms": 98.59
+    },
+    {
+      "timestamp_min": 32460.0,
+      "latency_ms": 93.15
+    },
+    {
+      "timestamp_min": 32520.0,
+      "latency_ms": 93.85
+    },
+    {
+      "timestamp_min": 32580.0,
+      "latency_ms": 91.37
+    },
+    {
+      "timestamp_min": 32640.0,
+      "latency_ms": 89.56
+    },
+    {
+      "timestamp_min": 32700.0,
+      "latency_ms": 89.19
+    },
+    {
+      "timestamp_min": 32760.0,
+      "latency_ms": 87.11
+    },
+    {
+      "timestamp_min": 32820.0,
+      "latency_ms": 88.05
+    },
+    {
+      "timestamp_min": 32880.0,
+      "latency_ms": 87.55
+    },
+    {
+      "timestamp_min": 32940.0,
+      "latency_ms": 90.21
+    },
+    {
+      "timestamp_min": 33000.0,
+      "latency_ms": 92.97
+    },
+    {
+      "timestamp_min": 33060.0,
+      "latency_ms": 95.97
+    },
+    {
+      "timestamp_min": 33120.0,
+      "latency_ms": 98.41
+    },
+    {
+      "timestamp_min": 33180.0,
+      "latency_ms": 100.91
+    },
+    {
+      "timestamp_min": 33240.0,
+      "latency_ms": 101.23
+    },
+    {
+      "timestamp_min": 33300.0,
+      "latency_ms": 106.57
+    },
+    {
+      "timestamp_min": 33360.0,
+      "latency_ms": 109.47
+    },
+    {
+      "timestamp_min": 33420.0,
+      "latency_ms": 111.42
+    },
+    {
+      "timestamp_min": 33480.0,
+      "latency_ms": 109.93
+    },
+    {
+      "timestamp_min": 33540.0,
+      "latency_ms": 111.2
+    },
+    {
+      "timestamp_min": 33600.0,
+      "latency_ms": 108.11
+    },
+    {
+      "timestamp_min": 33660.0,
+      "latency_ms": 108.35
+    },
+    {
+      "timestamp_min": 33720.0,
+      "latency_ms": 103.67
+    },
+    {
+      "timestamp_min": 33780.0,
+      "latency_ms": 101.89
+    },
+    {
+      "timestamp_min": 33840.0,
+      "latency_ms": 98.27
+    },
+    {
+      "timestamp_min": 33900.0,
+      "latency_ms": 92.7
+    },
+    {
+      "timestamp_min": 33960.0,
+      "latency_ms": 93.93
+    },
+    {
+      "timestamp_min": 34020.0,
+      "latency_ms": 91.1
+    },
+    {
+      "timestamp_min": 34080.0,
+      "latency_ms": 90.28
+    },
+    {
+      "timestamp_min": 34140.0,
+      "latency_ms": 86.32
+    },
+    {
+      "timestamp_min": 34200.0,
+      "latency_ms": 87.57
+    },
+    {
+      "timestamp_min": 34260.0,
+      "latency_ms": 88.26
+    },
+    {
+      "timestamp_min": 34320.0,
+      "latency_ms": 88.09
+    },
+    {
+      "timestamp_min": 34380.0,
+      "latency_ms": 90.53
+    },
+    {
+      "timestamp_min": 34440.0,
+      "latency_ms": 90.4
+    },
+    {
+      "timestamp_min": 34500.0,
+      "latency_ms": 95.39
+    },
+    {
+      "timestamp_min": 34560.0,
+      "latency_ms": 100.6
+    },
+    {
+      "timestamp_min": 34620.0,
+      "latency_ms": 102.21
+    },
+    {
+      "timestamp_min": 34680.0,
+      "latency_ms": 103.35
+    },
+    {
+      "timestamp_min": 34740.0,
+      "latency_ms": 107.56
+    },
+    {
+      "timestamp_min": 34800.0,
+      "latency_ms": 109.56
+    },
+    {
+      "timestamp_min": 34860.0,
+      "latency_ms": 108.02
+    },
+    {
+      "timestamp_min": 34920.0,
+      "latency_ms": 111.82
+    },
+    {
+      "timestamp_min": 34980.0,
+      "latency_ms": 109.64
+    },
+    {
+      "timestamp_min": 35040.0,
+      "latency_ms": 107.02
+    },
+    {
+      "timestamp_min": 35100.0,
+      "latency_ms": 108.95
+    },
+    {
+      "timestamp_min": 35160.0,
+      "latency_ms": 107.74
+    },
+    {
+      "timestamp_min": 35220.0,
+      "latency_ms": 104.92
+    },
+    {
+      "timestamp_min": 35280.0,
+      "latency_ms": 101.54
+    },
+    {
+      "timestamp_min": 35340.0,
+      "latency_ms": 98.9
+    },
+    {
+      "timestamp_min": 35400.0,
+      "latency_ms": 96.19
+    },
+    {
+      "timestamp_min": 35460.0,
+      "latency_ms": 95.81
+    },
+    {
+      "timestamp_min": 35520.0,
+      "latency_ms": 95.2
+    },
+    {
+      "timestamp_min": 35580.0,
+      "latency_ms": 91.68
+    },
+    {
+      "timestamp_min": 35640.0,
+      "latency_ms": 94.29
+    },
+    {
+      "timestamp_min": 35700.0,
+      "latency_ms": 96.14
+    },
+    {
+      "timestamp_min": 35760.0,
+      "latency_ms": 98.04
+    },
+    {
+      "timestamp_min": 35820.0,
+      "latency_ms": 101.99
+    },
+    {
+      "timestamp_min": 35880.0,
+      "latency_ms": 103.04
+    },
+    {
+      "timestamp_min": 35940.0,
+      "latency_ms": 103.98
+    },
+    {
+      "timestamp_min": 36000.0,
+      "latency_ms": 111.01
+    },
+    {
+      "timestamp_min": 36060.0,
+      "latency_ms": 113.43
+    },
+    {
+      "timestamp_min": 36120.0,
+      "latency_ms": 116.99
+    },
+    {
+      "timestamp_min": 36180.0,
+      "latency_ms": 120.25
+    },
+    {
+      "timestamp_min": 36240.0,
+      "latency_ms": 121.27
+    },
+    {
+      "timestamp_min": 36300.0,
+      "latency_ms": 124.36
+    },
+    {
+      "timestamp_min": 36360.0,
+      "latency_ms": 126.54
+    },
+    {
+      "timestamp_min": 36420.0,
+      "latency_ms": 125.8
+    },
+    {
+      "timestamp_min": 36480.0,
+      "latency_ms": 124.3
+    },
+    {
+      "timestamp_min": 36540.0,
+      "latency_ms": 124.27
+    },
+    {
+      "timestamp_min": 36600.0,
+      "latency_ms": 122.85
+    },
+    {
+      "timestamp_min": 36660.0,
+      "latency_ms": 118.94
+    },
+    {
+      "timestamp_min": 36720.0,
+      "latency_ms": 119.42
+    },
+    {
+      "timestamp_min": 36780.0,
+      "latency_ms": 118.05
+    },
+    {
+      "timestamp_min": 36840.0,
+      "latency_ms": 115.45
+    },
+    {
+      "timestamp_min": 36900.0,
+      "latency_ms": 111.57
+    },
+    {
+      "timestamp_min": 36960.0,
+      "latency_ms": 113.7
+    },
+    {
+      "timestamp_min": 37020.0,
+      "latency_ms": 110.84
+    },
+    {
+      "timestamp_min": 37080.0,
+      "latency_ms": 110.12
+    },
+    {
+      "timestamp_min": 37140.0,
+      "latency_ms": 111.02
+    },
+    {
+      "timestamp_min": 37200.0,
+      "latency_ms": 114.59
+    },
+    {
+      "timestamp_min": 37260.0,
+      "latency_ms": 117.02
+    },
+    {
+      "timestamp_min": 37320.0,
+      "latency_ms": 121.27
+    },
+    {
+      "timestamp_min": 37380.0,
+      "latency_ms": 124.66
+    },
+    {
+      "timestamp_min": 37440.0,
+      "latency_ms": 128.27
+    },
+    {
+      "timestamp_min": 37500.0,
+      "latency_ms": 132.93
+    },
+    {
+      "timestamp_min": 37560.0,
+      "latency_ms": 132.99
+    },
+    {
+      "timestamp_min": 37620.0,
+      "latency_ms": 136.42
+    },
+    {
+      "timestamp_min": 37680.0,
+      "latency_ms": 138.95
+    },
+    {
+      "timestamp_min": 37740.0,
+      "latency_ms": 144.1
+    },
+    {
+      "timestamp_min": 37800.0,
+      "latency_ms": 143.27
+    },
+    {
+      "timestamp_min": 37860.0,
+      "latency_ms": 144.2
+    },
+    {
+      "timestamp_min": 37920.0,
+      "latency_ms": 143.44
+    },
+    {
+      "timestamp_min": 37980.0,
+      "latency_ms": 140.81
+    },
+    {
+      "timestamp_min": 38040.0,
+      "latency_ms": 139.94
+    },
+    {
+      "timestamp_min": 38100.0,
+      "latency_ms": 139.16
+    },
+    {
+      "timestamp_min": 38160.0,
+      "latency_ms": 137.52
+    },
+    {
+      "timestamp_min": 38220.0,
+      "latency_ms": 131.24
+    },
+    {
+      "timestamp_min": 38280.0,
+      "latency_ms": 130.9
+    },
+    {
+      "timestamp_min": 38340.0,
+      "latency_ms": 130.44
+    },
+    {
+      "timestamp_min": 38400.0,
+      "latency_ms": 125.92
+    },
+    {
+      "timestamp_min": 38460.0,
+      "latency_ms": 127.28
+    },
+    {
+      "timestamp_min": 38520.0,
+      "latency_ms": 129.74
+    },
+    {
+      "timestamp_min": 38580.0,
+      "latency_ms": 129.14
+    },
+    {
+      "timestamp_min": 38640.0,
+      "latency_ms": 130.79
+    },
+    {
+      "timestamp_min": 38700.0,
+      "latency_ms": 134.01
+    },
+    {
+      "timestamp_min": 38760.0,
+      "latency_ms": 135.08
+    },
+    {
+      "timestamp_min": 38820.0,
+      "latency_ms": 139.93
+    },
+    {
+      "timestamp_min": 38880.0,
+      "latency_ms": 144.35
+    },
+    {
+      "timestamp_min": 38940.0,
+      "latency_ms": 147.92
+    },
+    {
+      "timestamp_min": 39000.0,
+      "latency_ms": 150.54
+    },
+    {
+      "timestamp_min": 39060.0,
+      "latency_ms": 153.38
+    },
+    {
+      "timestamp_min": 39120.0,
+      "latency_ms": 155.62
+    },
+    {
+      "timestamp_min": 39180.0,
+      "latency_ms": 158.91
+    },
+    {
+      "timestamp_min": 39240.0,
+      "latency_ms": 160.25
+    },
+    {
+      "timestamp_min": 39300.0,
+      "latency_ms": 160.07
+    },
+    {
+      "timestamp_min": 39360.0,
+      "latency_ms": 161.53
+    },
+    {
+      "timestamp_min": 39420.0,
+      "latency_ms": 159.25
+    },
+    {
+      "timestamp_min": 39480.0,
+      "latency_ms": 158.27
+    },
+    {
+      "timestamp_min": 39540.0,
+      "latency_ms": 156.36
+    },
+    {
+      "timestamp_min": 39600.0,
+      "latency_ms": 153.31
+    },
+    {
+      "timestamp_min": 39660.0,
+      "latency_ms": 150.93
+    },
+    {
+      "timestamp_min": 39720.0,
+      "latency_ms": 147.23
+    },
+    {
+      "timestamp_min": 39780.0,
+      "latency_ms": 146.95
+    },
+    {
+      "timestamp_min": 39840.0,
+      "latency_ms": 146.66
+    },
+    {
+      "timestamp_min": 39900.0,
+      "latency_ms": 145.94
+    },
+    {
+      "timestamp_min": 39960.0,
+      "latency_ms": 143.54
+    },
+    {
+      "timestamp_min": 40020.0,
+      "latency_ms": 148.42
+    },
+    {
+      "timestamp_min": 40080.0,
+      "latency_ms": 150.12
+    },
+    {
+      "timestamp_min": 40140.0,
+      "latency_ms": 152.33
+    },
+    {
+      "timestamp_min": 40200.0,
+      "latency_ms": 155.07
+    },
+    {
+      "timestamp_min": 40260.0,
+      "latency_ms": 158.21
+    },
+    {
+      "timestamp_min": 40320.0,
+      "latency_ms": 161.01
+    },
+    {
+      "timestamp_min": 40380.0,
+      "latency_ms": 165.52
+    },
+    {
+      "timestamp_min": 40440.0,
+      "latency_ms": 171.61
+    },
+    {
+      "timestamp_min": 40500.0,
+      "latency_ms": 171.68
+    },
+    {
+      "timestamp_min": 40560.0,
+      "latency_ms": 175.41
+    },
+    {
+      "timestamp_min": 40620.0,
+      "latency_ms": 178.96
+    },
+    {
+      "timestamp_min": 40680.0,
+      "latency_ms": 177.84
+    },
+    {
+      "timestamp_min": 40740.0,
+      "latency_ms": 176.43
+    },
+    {
+      "timestamp_min": 40800.0,
+      "latency_ms": 176.23
+    },
+    {
+      "timestamp_min": 40860.0,
+      "latency_ms": 178.99
+    },
+    {
+      "timestamp_min": 40920.0,
+      "latency_ms": 173.01
+    },
+    {
+      "timestamp_min": 40980.0,
+      "latency_ms": 172.16
+    },
+    {
+      "timestamp_min": 41040.0,
+      "latency_ms": 173.31
+    },
+    {
+      "timestamp_min": 41100.0,
+      "latency_ms": 168.89
+    },
+    {
+      "timestamp_min": 41160.0,
+      "latency_ms": 166.36
+    },
+    {
+      "timestamp_min": 41220.0,
+      "latency_ms": 162.14
+    },
+    {
+      "timestamp_min": 41280.0,
+      "latency_ms": 163.15
+    },
+    {
+      "timestamp_min": 41340.0,
+      "latency_ms": 163.55
+    },
+    {
+      "timestamp_min": 41400.0,
+      "latency_ms": 163.12
+    },
+    {
+      "timestamp_min": 41460.0,
+      "latency_ms": 165.18
+    },
+    {
+      "timestamp_min": 41520.0,
+      "latency_ms": 167.26
+    },
+    {
+      "timestamp_min": 41580.0,
+      "latency_ms": 168.39
+    },
+    {
+      "timestamp_min": 41640.0,
+      "latency_ms": 173.49
+    },
+    {
+      "timestamp_min": 41700.0,
+      "latency_ms": 173.59
+    },
+    {
+      "timestamp_min": 41760.0,
+      "latency_ms": 179.18
+    },
+    {
+      "timestamp_min": 41820.0,
+      "latency_ms": 182.01
+    },
+    {
+      "timestamp_min": 41880.0,
+      "latency_ms": 186.45
+    },
+    {
+      "timestamp_min": 41940.0,
+      "latency_ms": 189.41
+    },
+    {
+      "timestamp_min": 42000.0,
+      "latency_ms": 192.15
+    },
+    {
+      "timestamp_min": 42060.0,
+      "latency_ms": 192.06
+    },
+    {
+      "timestamp_min": 42120.0,
+      "latency_ms": 192.78
+    },
+    {
+      "timestamp_min": 42180.0,
+      "latency_ms": 195.27
+    },
+    {
+      "timestamp_min": 42240.0,
+      "latency_ms": 195.06
+    },
+    {
+      "timestamp_min": 42300.0,
+      "latency_ms": 195.35
+    },
+    {
+      "timestamp_min": 42360.0,
+      "latency_ms": 194.97
+    },
+    {
+      "timestamp_min": 42420.0,
+      "latency_ms": 190.83
+    },
+    {
+      "timestamp_min": 42480.0,
+      "latency_ms": 189.7
+    },
+    {
+      "timestamp_min": 42540.0,
+      "latency_ms": 186.02
+    },
+    {
+      "timestamp_min": 42600.0,
+      "latency_ms": 182.98
+    },
+    {
+      "timestamp_min": 42660.0,
+      "latency_ms": 182.01
+    },
+    {
+      "timestamp_min": 42720.0,
+      "latency_ms": 182.76
+    },
+    {
+      "timestamp_min": 42780.0,
+      "latency_ms": 178.12
+    },
+    {
+      "timestamp_min": 42840.0,
+      "latency_ms": 180.55
+    },
+    {
+      "timestamp_min": 42900.0,
+      "latency_ms": 184.76
+    },
+    {
+      "timestamp_min": 42960.0,
+      "latency_ms": 185.8
+    },
+    {
+      "timestamp_min": 43020.0,
+      "latency_ms": 186.43
+    },
+    {
+      "timestamp_min": 43080.0,
+      "latency_ms": 189.58
+    },
+    {
+      "timestamp_min": 43140.0,
+      "latency_ms": 191.92
+    },
+    {
+      "timestamp_min": 43200.0,
+      "latency_ms": 196.46
+    }
+  ],
+  "incident_counts": {
+    "network-gateway": 120,
+    "auth-service": 119,
+    "session-store": 119,
+    "chat-support": 115,
+    "inventory-service": 112,
+    "analytics-ingest": 98,
+    "notifications-service": 97,
+    "recommendation-engine": 97,
+    "shipping-service": 97,
+    "checkout-service": 96,
+    "profile-service": 96,
+    "media-upload": 95,
+    "payments-service": 95,
+    "billing-service": 94,
+    "search-service": 93,
+    "cache-gateway": 11
+  }
 }
