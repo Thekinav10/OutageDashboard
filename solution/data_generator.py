@@ -83,7 +83,11 @@ def generate_month_dataset(data_dir: Path) -> dict:
     hours = 30 * 24
     incident_start = 24 * 24
     for hour in range(hours + 1):
-        daily_cycle = 1 + 0.13 * (1 + __import__("math").sin(hour / 24 * 6.283))
+        hour_of_day = hour % 24
+        day_of_week = (hour // 24) % 7
+        business_load = 1.16 if 8 <= hour_of_day <= 18 else 0.9 if hour_of_day < 6 else 1.02
+        weekend_factor = 0.84 if day_of_week >= 5 else 1.0
+        daily_cycle = business_load * weekend_factor
         for service, base_latency in SERVICES.items():
             distance = distances[service]
             cascade = max(0, hour - incident_start - distance * 5)

@@ -35,6 +35,7 @@ def build_result(dataset: dict, findings: list[dict], trends: list[dict], cascad
         "earliest_detectable_min": earliest,
         "recommended_intervention_min": intervention,
         "cascade": cascade,
+        "dependencies": dataset["dependencies"],
         "ranked_changes": ranked,
         "trend_evidence": trends,
         "latency_series": latency_series,
