@@ -1,2 +1,9 @@
+[project]
+name = "outage-watch"
+version = "0.1.0"
+description = "Dependency-aware microservice outage monitoring dashboard"
+requires-python = ">=3.10"
+dependencies = []
+
 [tool.vercel]
 entrypoint = "api/index.py"
