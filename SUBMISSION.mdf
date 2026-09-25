@@ -1,0 +1,12 @@
+# HACKONEX Submission
+
+## Solution
+
+Outage Watch is a replayable, dependency-aware monitoring system for the
+provided six-hour outage scenario. Run `python solution/app.py --report` to
+generate the incident report, or `python solution/app.py --serve` to open the
+dashboard.
+
+The system combines robust per-service baselines, sustained trend detection,
+reverse dependency traversal, and configuration-change ranking to identify the
+earliest intervention point and likely originating change.

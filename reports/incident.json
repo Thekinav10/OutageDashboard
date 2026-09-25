@@ -1,0 +1,311 @@
+{
+  "detected": true,
+  "earliest_detectable_min": 63.0,
+  "recommended_intervention_min": 63.0,
+  "cascade": {
+    "detected": true,
+    "root_service": "network-gateway",
+    "root_onset_min": 66.0,
+    "onsets": {
+      "auth-service": 63.0,
+      "session-store": 63.0,
+      "network-gateway": 66.0,
+      "search-service": 72.0,
+      "inventory-service": 78.0,
+      "media-upload": 78.0,
+      "profile-service": 81.0,
+      "chat-support": 84.0,
+      "payments-service": 84.0,
+      "recommendation-engine": 84.0,
+      "billing-service": 96.0,
+      "checkout-service": 96.0,
+      "notifications-service": 111.0,
+      "analytics-ingest": 114.0,
+      "shipping-service": 117.0,
+      "cdn-edge": 126.0,
+      "cache-gateway": 267.0
+    },
+    "path": [
+      {
+        "from": "network-gateway",
+        "to": "auth-service",
+        "timestamp_min": 63.0,
+        "lag_min": -3.0
+      },
+      {
+        "from": "network-gateway",
+        "to": "session-store",
+        "timestamp_min": 63.0,
+        "lag_min": -3.0
+      },
+      {
+        "from": "network-gateway",
+        "to": "inventory-service",
+        "timestamp_min": 78.0,
+        "lag_min": 12.0
+      },
+      {
+        "from": "network-gateway",
+        "to": "search-service",
+        "timestamp_min": 72.0,
+        "lag_min": 6.0
+      },
+      {
+        "from": "network-gateway",
+        "to": "media-upload",
+        "timestamp_min": 78.0,
+        "lag_min": 12.0
+      },
+      {
+        "from": "auth-service",
+        "to": "payments-service",
+        "timestamp_min": 84.0,
+        "lag_min": 21.0
+      },
+      {
+        "from": "auth-service",
+        "to": "profile-service",
+        "timestamp_min": 81.0,
+        "lag_min": 18.0
+      },
+      {
+        "from": "auth-service",
+        "to": "chat-support",
+        "timestamp_min": 84.0,
+        "lag_min": 21.0
+      },
+      {
+        "from": "inventory-service",
+        "to": "checkout-service",
+        "timestamp_min": 96.0,
+        "lag_min": 18.0
+      },
+      {
+        "from": "search-service",
+        "to": "recommendation-engine",
+        "timestamp_min": 84.0,
+        "lag_min": 12.0
+      },
+      {
+        "from": "search-service",
+        "to": "analytics-ingest",
+        "timestamp_min": 114.0,
+        "lag_min": 42.0
+      },
+      {
+        "from": "payments-service",
+        "to": "billing-service",
+        "timestamp_min": 96.0,
+        "lag_min": 12.0
+      },
+      {
+        "from": "checkout-service",
+        "to": "notifications-service",
+        "timestamp_min": 111.0,
+        "lag_min": 15.0
+      },
+      {
+        "from": "checkout-service",
+        "to": "shipping-service",
+        "timestamp_min": 117.0,
+        "lag_min": 21.0
+      }
+    ],
+    "root_cause": {
+      "timestamp_min": 42.0,
+      "service": "network-gateway",
+      "change_id": "cfg-1003",
+      "description": "Updated internal routing table for backbone service mesh (v4.7 rollout)"
+    }
+  },
+  "ranked_changes": [
+    {
+      "timestamp_min": 42.0,
+      "service": "network-gateway",
+      "change_id": "cfg-1003",
+      "description": "Updated internal routing table for backbone service mesh (v4.7 rollout)",
+      "causal_score": 1.6
+    },
+    {
+      "timestamp_min": 77.0,
+      "service": "cache-gateway",
+      "change_id": "cfg-1005",
+      "description": "Increased connection pool size from 50 to 75",
+      "causal_score": 0.82
+    },
+    {
+      "timestamp_min": 50.0,
+      "service": "checkout-service",
+      "change_id": "cfg-1004",
+      "description": "Adjusted logging verbosity from INFO to DEBUG for checkout flow",
+      "causal_score": 0.73
+    },
+    {
+      "timestamp_min": 110.0,
+      "service": "notifications-service",
+      "change_id": "cfg-1006",
+      "description": "Updated email template for order confirmation",
+      "causal_score": 0.27
+    },
+    {
+      "timestamp_min": 18.0,
+      "service": "chat-support",
+      "change_id": "cfg-1002",
+      "description": "Rotated API key for third-party chat widget integration",
+      "causal_score": 0.2
+    },
+    {
+      "timestamp_min": 5.0,
+      "service": "cdn-edge",
+      "change_id": "cfg-1001",
+      "description": "Updated cache TTL for static assets from 300s to 600s",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 140.0,
+      "service": "billing-service",
+      "change_id": "cfg-1007",
+      "description": "Patched currency-rounding rule for INR transactions",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 168.0,
+      "service": "profile-service",
+      "change_id": "cfg-1008",
+      "description": "Enabled new avatar upload size limit (5MB to 8MB)",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 205.0,
+      "service": "media-upload",
+      "change_id": "cfg-1009",
+      "description": "Restarted worker pool after scheduled maintenance window",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 240.0,
+      "service": "search-service",
+      "change_id": "cfg-1010",
+      "description": "Reindexed product catalog (scheduled weekly job)",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 275.0,
+      "service": "shipping-service",
+      "change_id": "cfg-1011",
+      "description": "Updated carrier rate table for regional zones",
+      "causal_score": 0.0
+    },
+    {
+      "timestamp_min": 310.0,
+      "service": "analytics-ingest",
+      "change_id": "cfg-1012",
+      "description": "Added new event schema field (non-breaking, additive)",
+      "causal_score": 0.0
+    }
+  ],
+  "trend_evidence": [
+    {
+      "service": "network-gateway",
+      "timestamp_min": 66.0,
+      "slope_ms_per_sample": 10.46,
+      "confidence": 0.71
+    },
+    {
+      "service": "session-store",
+      "timestamp_min": 66.0,
+      "slope_ms_per_sample": -0.45,
+      "confidence": 0.73
+    },
+    {
+      "service": "auth-service",
+      "timestamp_min": 72.0,
+      "slope_ms_per_sample": 4.75,
+      "confidence": 0.71
+    },
+    {
+      "service": "search-service",
+      "timestamp_min": 72.0,
+      "slope_ms_per_sample": 17.15,
+      "confidence": 0.73
+    },
+    {
+      "service": "inventory-service",
+      "timestamp_min": 84.0,
+      "slope_ms_per_sample": 3.45,
+      "confidence": 0.73
+    },
+    {
+      "service": "media-upload",
+      "timestamp_min": 84.0,
+      "slope_ms_per_sample": 37.71,
+      "confidence": 0.73
+    },
+    {
+      "service": "profile-service",
+      "timestamp_min": 84.0,
+      "slope_ms_per_sample": 7.99,
+      "confidence": 0.76
+    },
+    {
+      "service": "chat-support",
+      "timestamp_min": 87.0,
+      "slope_ms_per_sample": 6.87,
+      "confidence": 0.73
+    },
+    {
+      "service": "recommendation-engine",
+      "timestamp_min": 87.0,
+      "slope_ms_per_sample": 10.17,
+      "confidence": 0.72
+    },
+    {
+      "service": "checkout-service",
+      "timestamp_min": 96.0,
+      "slope_ms_per_sample": 17.88,
+      "confidence": 0.71
+    },
+    {
+      "service": "payments-service",
+      "timestamp_min": 96.0,
+      "slope_ms_per_sample": 19.32,
+      "confidence": 0.74
+    },
+    {
+      "service": "billing-service",
+      "timestamp_min": 99.0,
+      "slope_ms_per_sample": 7.86,
+      "confidence": 0.72
+    },
+    {
+      "service": "notifications-service",
+      "timestamp_min": 111.0,
+      "slope_ms_per_sample": 10.97,
+      "confidence": 0.71
+    },
+    {
+      "service": "analytics-ingest",
+      "timestamp_min": 117.0,
+      "slope_ms_per_sample": 38.45,
+      "confidence": 0.73
+    },
+    {
+      "service": "shipping-service",
+      "timestamp_min": 123.0,
+      "slope_ms_per_sample": 10.56,
+      "confidence": 0.73
+    },
+    {
+      "service": "cdn-edge",
+      "timestamp_min": 129.0,
+      "slope_ms_per_sample": 10.87,
+      "confidence": 0.76
+    },
+    {
+      "service": "cache-gateway",
+      "timestamp_min": 270.0,
+      "slope_ms_per_sample": 7.77,
+      "confidence": 0.81
+    }
+  ]
+}
