@@ -19,6 +19,7 @@ def build_result(dataset: dict, findings: list[dict], trends: list[dict], cascad
     latency_by_minute = defaultdict(list)
     incident_counts = defaultdict(int)
     incidents_by_minute = defaultdict(int)
+    daily_incidents = defaultdict(lambda: defaultdict(int))
     observed_services = set()
     for row in findings:
         observed_services.add(row["service"])
@@ -26,10 +27,15 @@ def build_result(dataset: dict, findings: list[dict], trends: list[dict], cascad
         if row["level"] != "normal":
             incident_counts[row["service"]] += 1
             incidents_by_minute[row["timestamp_min"]] += 1
+            daily_incidents[str(int(row["timestamp_min"] // 1440))][row["service"]] += 1
     latency_series = [
         {"timestamp_min": timestamp, "latency_ms": round(sum(values) / len(values), 2)}
         for timestamp, values in sorted(latency_by_minute.items())
     ]
+    incident_points = sorted(incidents_by_minute.items())
+    baseline_cutoff = incident_points[0][0] + (incident_points[-1][0] - incident_points[0][0]) * 0.2 if incident_points else 0
+    baseline_incidents = [count for timestamp, count in incident_points if timestamp <= baseline_cutoff]
+    incident_threshold = max(1, (max(baseline_incidents) + 1) if baseline_incidents else 1)
     return {
         "window": dataset.get("window", "6-hour supplied replay"),
         "sample_count": len(findings),
@@ -45,6 +51,16 @@ def build_result(dataset: dict, findings: list[dict], trends: list[dict], cascad
             {"timestamp_min": timestamp, "incident_count": count}
             for timestamp, count in sorted(incidents_by_minute.items())
         ],
+        "incident_daily_series": [
+            {"day": day, "incident_count": sum(daily_incidents.get(str(day), {}).values())}
+            for day in range(int(max((row["timestamp_min"] for row in findings), default=0) // 1440) + 1)
+        ],
+        "incident_threshold": incident_threshold,
+        "daily_incidents": {
+            day: dict(sorted(services.items(), key=lambda item: (-item[1], item[0])))
+            for day, services in sorted(daily_incidents.items())
+        },
+        "calendar_start": dataset.get("calendar_start", "2026-09-01"),
         "incident_counts": dict(sorted(incident_counts.items(), key=lambda item: (-item[1], item[0]))),
         "service_health": {service: incident_counts.get(service, 0) for service in sorted(observed_services)},
     }

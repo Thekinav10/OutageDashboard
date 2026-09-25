@@ -115,4 +115,4 @@ def generate_month_dataset(data_dir: Path) -> dict:
         "change_id": "cfg-month-042",
         "description": "Updated internal routing table for backbone service mesh",
     })
-    return {"metrics": rows, "changes": sorted(changes, key=lambda row: row["timestamp_min"]), "dependencies": dependencies, "window": "30 days / hourly samples / bookstore topology"}
+    return {"metrics": rows, "changes": sorted(changes, key=lambda row: row["timestamp_min"]), "dependencies": dependencies, "window": "30 days / hourly samples / bookstore topology", "calendar_start": "2026-08-27"}
