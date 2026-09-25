@@ -34,3 +34,16 @@ incident and identifies the upstream service rather than the most degraded
 downstream service. The dashboard also supports daily incident review,
 interactive dependency graphs, failed-service blast-radius analysis, and a
 calendar-filtered analyst queue.
+
+## Deploy To Vercel
+
+The repository includes `api/index.py` and `vercel.json` for serverless
+deployment. Vercel serves the 30-day bookstore replay by default:
+
+```powershell
+npx vercel
+```
+
+The deployed dashboard is served at `/`. Machine-readable results are
+available at `/api/live` and `/api/incident`. To request the original supplied
+replay instead, use `/api/live?mode=original`.
