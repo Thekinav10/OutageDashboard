@@ -18,12 +18,14 @@ def build_result(dataset: dict, findings: list[dict], trends: list[dict], cascad
     intervention = min((row["timestamp_min"] for row in findings if row["anomaly_score"] >= 1.45), default=earliest)
     latency_by_minute = defaultdict(list)
     incident_counts = defaultdict(int)
+    incidents_by_minute = defaultdict(int)
     observed_services = set()
     for row in findings:
         observed_services.add(row["service"])
         latency_by_minute[row["timestamp_min"]].append(row["latency_ms"])
         if row["level"] != "normal":
             incident_counts[row["service"]] += 1
+            incidents_by_minute[row["timestamp_min"]] += 1
     latency_series = [
         {"timestamp_min": timestamp, "latency_ms": round(sum(values) / len(values), 2)}
         for timestamp, values in sorted(latency_by_minute.items())
@@ -39,6 +41,10 @@ def build_result(dataset: dict, findings: list[dict], trends: list[dict], cascad
         "ranked_changes": ranked,
         "trend_evidence": trends,
         "latency_series": latency_series,
+        "incident_series": [
+            {"timestamp_min": timestamp, "incident_count": count}
+            for timestamp, count in sorted(incidents_by_minute.items())
+        ],
         "incident_counts": dict(sorted(incident_counts.items(), key=lambda item: (-item[1], item[0]))),
         "service_health": {service: incident_counts.get(service, 0) for service in sorted(observed_services)},
     }

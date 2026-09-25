@@ -34,10 +34,10 @@ def _safe(value: object) -> str:
     return html.escape(str(value))
 
 
-def _line_chart(series: list[dict]) -> str:
+def _incident_chart(series: list[dict]) -> str:
     if not series:
         return "<p class='muted'>No telemetry available.</p>"
-    values = [item["latency_ms"] for item in series]
+    values = [item["incident_count"] for item in series]
     low, high = min(values), max(values)
     spread = max(high - low, 1)
     points = []
@@ -45,16 +45,16 @@ def _line_chart(series: list[dict]) -> str:
     marker_step = max(1, len(series) // 36)
     for index, item in enumerate(series):
         x = 42 + index / max(len(series) - 1, 1) * 700
-        y = 22 + (high - item["latency_ms"]) / spread * 160
+        y = 22 + (high - item["incident_count"]) / spread * 160
         points.append(f"{x:.1f},{y:.1f}")
         if index % marker_step == 0 or index == len(series) - 1:
-            markers.append(f"<circle class='plot-point' cx='{x:.1f}' cy='{y:.1f}' r='3' data-time='{item['timestamp_min']}' data-latency='{item['latency_ms']}'/>")
+            markers.append(f"<circle class='plot-point' cx='{x:.1f}' cy='{y:.1f}' r='3' data-time='{item['timestamp_min']}' data-count='{item['incident_count']}'/>")
     end = points[-1].split(",")
     threshold = 22 + (high - (low + (high - low) * 0.72)) / spread * 160
     incident_index = max(0, len(series) - max(2, len(series) // 5))
     incident_x = 42 + incident_index / max(len(series) - 1, 1) * 700
     area = f"42,182 {' '.join(points)} 742,182"
-    return f"<div class='chart-wrap'><div class='tooltip' id='latency-tooltip'></div><svg class='chart' viewBox='0 0 760 210' role='img' aria-label='Interactive average latency trend with detection threshold'><line class='grid-line' x1='42' y1='22' x2='742' y2='22'/><line class='grid-line' x1='42' y1='102' x2='742' y2='102'/><line class='grid-line' x1='42' y1='182' x2='742' y2='182'/><line class='threshold' x1='42' y1='{threshold:.1f}' x2='742' y2='{threshold:.1f}'/><line class='marker' x1='{incident_x:.1f}' y1='22' x2='{incident_x:.1f}' y2='182'/><text x='5' y='26'>{high:.0f}ms</text><text x='5' y='186'>{low:.0f}ms</text><text x='48' y='{threshold - 5:.1f}'>detection threshold</text><polygon class='area' points='{area}'/><polyline class='line' points='{' '.join(points)}'/>{''.join(markers)}<circle class='end-dot' cx='{end[0]}' cy='{end[1]}' r='5'/><text x='{incident_x + 6:.1f}' y='34'>first signal</text><text x='42' y='204'>window start</text><text x='680' y='204'>now</text></svg></div>"
+    return f"<div class='chart-wrap'><div class='tooltip' id='latency-tooltip'></div><svg class='chart' viewBox='0 0 760 210' role='img' aria-label='Interactive incident pressure trend with detection threshold'><line class='grid-line' x1='42' y1='22' x2='742' y2='22'/><line class='grid-line' x1='42' y1='102' x2='742' y2='102'/><line class='grid-line' x1='42' y1='182' x2='742' y2='182'/><line class='threshold' x1='42' y1='{threshold:.1f}' x2='742' y2='{threshold:.1f}'/><line class='marker' x1='{incident_x:.1f}' y1='22' x2='{incident_x:.1f}' y2='182'/><text x='5' y='26'>{high:.0f}</text><text x='5' y='186'>{low:.0f}</text><text x='48' y='{threshold - 5:.1f}'>alert threshold</text><polygon class='area' points='{area}'/><polyline class='line' points='{' '.join(points)}'/>{''.join(markers)}<circle class='end-dot' cx='{end[0]}' cy='{end[1]}' r='5'/><text x='{incident_x + 6:.1f}' y='34'>first signal</text><text x='42' y='204'>window start</text><text x='680' y='204'>now</text></svg></div>"
 
 
 def _pie_chart(counts: dict[str, int]) -> tuple[str, str]:
@@ -159,7 +159,7 @@ def render_dashboard(result: dict) -> str:
 <aside class='rail'><div class='brand'><div class='brand-mark'>S</div><strong>SENTINEL SOC</strong></div><div><div class='rail-label'>Workspace</div><nav class='nav'><a class='active' href='#overview'><b>01</b><span>Overview</span></a><a href='#signals'><b>02</b><span>Signals</span></a><a href='#services'><b>03</b><span>Services</span></a><a href='#timeline'><b>04</b><span>Timeline</span></a></nav></div><div class='rail-footer'><span class='dot'></span>Telemetry pipeline<br><span class='muted'>All collectors online</span></div></aside>
 <main class='content' id='overview'><header class='topbar'><div><div class='eyebrow'>Security operations / platform integrity</div><h1>Incident command center</h1></div><div class='actions'><span class='live'><i></i>Live replay</span><button class='btn'>{window}</button><button class='btn'>UTC</button></div></header>
 <section class='kpis'><article class='kpi danger'><div class='eyebrow'>Active cascade</div><div class='kpi-value'>{'OPEN' if cascade.get('detected') else 'CLEAR'}</div><div class='kpi-note'>Root: {root}</div></article><article class='kpi warn'><div class='eyebrow'>Incident observations</div><div class='kpi-value'>{total_incidents:,}</div><div class='kpi-note'>{affected} affected services</div></article><article class='kpi'><div class='eyebrow'>Mean latency</div><div class='kpi-value'>{mean_latency:.0f}<span class='muted'> ms</span></div><div class='kpi-note'>Across current telemetry window</div></article><article class='kpi'><div class='eyebrow'>Top signal source</div><div class='kpi-value'>{_safe(top_service)}</div><div class='kpi-note'>{top_count} anomaly observations</div></article></section>
-<section class='layout' id='signals'><article class='panel'><div class='panel-head'><div><div class='eyebrow'>Signal telemetry</div><h2>Latency drift across platform</h2><div class='panel-sub'>Hover any point to inspect the actual observation</div></div><div class='chart-legend'><span>latency</span><span>current</span></div></div>{_line_chart(result.get('latency_series', []))}<div class='range-controls'><button class='active' data-hours='720'>30D</button><button data-hours='168'>7D</button><button data-hours='24'>24H</button><span class='muted' id='range-label'>Full replay window</span></div></article><article class='panel'><div class='panel-head'><div><div class='eyebrow'>Signal attribution</div><h2>Risk mix</h2><div class='panel-sub'>Total anomaly observations by service</div></div></div><div class='pie-layout'>{pie}{legend}</div></article></section>
+<section class='layout' id='signals'><article class='panel'><div class='panel-head'><div><div class='eyebrow'>Signal telemetry</div><h2>Incident pressure across platform</h2><div class='panel-sub'>Anomaly observations grouped by replay interval</div></div><div class='chart-legend'><span>incidents</span><span>current</span></div></div>{_incident_chart(result.get('incident_series', []))}<div class='range-controls'><button class='active' data-hours='720'>30D</button><button data-hours='168'>7D</button><button data-hours='24'>24H</button><span class='muted' id='range-label'>Full replay window</span></div></article><article class='panel'><div class='panel-head'><div><div class='eyebrow'>Signal attribution</div><h2>Risk mix</h2><div class='panel-sub'>Total anomaly observations by service</div></div></div><div class='pie-layout'>{pie}{legend}</div></article></section>
 <section class='panel' id='services' style='margin-top:14px'><div class='panel-head'><div><div class='eyebrow'>Asset inventory</div><h2>Bookstore service posture</h2><div class='panel-sub'>Green: nominal. Red: investigation required.</div></div><span class='muted'>{len(health)} services monitored</span></div><div class='health'>{_health_matrix(health)}</div></section>
 <section class='panel' style='margin-top:14px'><div class='panel-head'><div><div class='eyebrow'>Topology map</div><h2>Microservice dependency graph</h2><div class='panel-sub'>Directed service topology and blast radius. Red nodes are impacted; amber is the root signal.</div></div><span class='muted'>{len(result.get('dependencies', {}))} services mapped</span></div>{relation_tree}</section>
 <section class='panel' style='margin-top:14px'><div class='panel-head'><div><div class='eyebrow'>Analyst queue</div><h2>Prioritized detection queue</h2><div class='panel-sub'>Configuration changes ranked against observed cascade onset</div></div><span class='severity'>{len(result.get('ranked_changes', []))} EVENTS</span></div><div style='overflow:auto'><table class='queue'><thead><tr><th>Priority</th><th>Service</th><th>Change</th><th>Evidence</th><th>Score</th></tr></thead><tbody>{_queue(result.get('ranked_changes', []))}</tbody></table></div></section>
@@ -169,7 +169,7 @@ const points = document.querySelectorAll('.plot-point');
 const tooltip = document.getElementById('latency-tooltip');
 points.forEach(point => {{
     point.addEventListener('mouseenter', event => {{
-        tooltip.textContent = `Minute ${{point.dataset.time}} | ${{point.dataset.latency}} ms`;
+        tooltip.textContent = `Minute ${{point.dataset.time}} | ${{point.dataset.count}} incidents`;
         tooltip.style.display = 'block';
         tooltip.style.left = `${{event.offsetX + 12}}px`;
         tooltip.style.top = `${{event.offsetY - 34}}px`;
