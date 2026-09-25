@@ -38,6 +38,7 @@ def main() -> None:
     parser.add_argument("--report", action="store_true", help="write Markdown and JSON reports")
     parser.add_argument("--serve", action="store_true", help="serve the browser dashboard")
     parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--host", default="127.0.0.1", help="interface for the HTTP server")
     parser.add_argument("--month", action="store_true", help="use a deterministic 30-day hourly realtime-style dataset")
     args = parser.parse_args()
     result = run(args.data_dir, month=args.month)
@@ -47,7 +48,7 @@ def main() -> None:
         print(f"Earliest detectable signal: minute {result['earliest_detectable_min']}")
         print(f"Reports: {paths[0]}, {paths[1]}")
     if args.serve:
-        serve(result, port=args.port)
+        serve(result, host=args.host, port=args.port)
 
 
 if __name__ == "__main__":

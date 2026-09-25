@@ -1,13 +1,17 @@
 {
-  "version": 2,
-  "routes": [
+  "services": {
+    "web": {
+      "root": ".",
+      "entrypoint": "solution/app.py"
+    }
+  },
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/index.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.py"
+      "source": "/(.*)",
+      "destination": {
+        "type": "service",
+        "service": "web"
+      }
     }
   ]
 }

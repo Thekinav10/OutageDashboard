@@ -35,15 +35,36 @@ downstream service. The dashboard also supports daily incident review,
 interactive dependency graphs, failed-service blast-radius analysis, and a
 calendar-filtered analyst queue.
 
-## Deploy To Vercel
+## Run On A Python Host
 
-The repository includes `api/index.py` and `vercel.json` for serverless
-deployment. Vercel serves the 30-day bookstore replay by default:
+The dashboard is a standard Python HTTP server and can run on any host that
+supports Python 3.10 or newer. For a managed host such as Render or Railway,
+use this start command:
 
 ```powershell
-npx vercel
+python solution/app.py --month --serve --host 0.0.0.0 --port $PORT
 ```
 
-The deployed dashboard is served at `/`. Machine-readable results are
-available at `/api/live` and `/api/incident`. To request the original supplied
-replay instead, use `/api/live?mode=original`.
+For local development, use port 8000 instead:
+
+```powershell
+python solution/app.py --month --serve --host 127.0.0.1 --port 8000
+```
+
+## Deploy To PythonAnywhere
+
+The repository includes `pythonanywhere_wsgi.py`, a WSGI entry point for the
+PythonAnywhere Web tab.
+
+1. Upload or clone this repository into `/home/<username>/finals-team-05`.
+2. Create a Python 3.10+ web app from the PythonAnywhere Web tab.
+3. Set the WSGI file to:
+	`/home/<username>/finals-team-05/pythonanywhere_wsgi.py`.
+4. Set the source directory to:
+	`/home/<username>/finals-team-05`.
+5. Reload the web app.
+
+No package installation is required. The dashboard is available at the
+PythonAnywhere application URL, with JSON available at `/api/live` and
+`/api/incident`. Use `/api/live?mode=original` for the supplied six-hour
+replay.
