@@ -3,13 +3,22 @@
 import argparse
 from pathlib import Path
 
-from anomaly_detector import detect_anomalies
-from cascade_detector import detect_cascade
-from config import DATA_DIR
-from dashboard import serve
-from data_loader import load_dataset
-from incident_report import build_result, write_reports
-from trend_detector import detect_trends
+try:
+    from .anomaly_detector import detect_anomalies
+    from .cascade_detector import detect_cascade
+    from .config import DATA_DIR
+    from .dashboard import serve
+    from .data_loader import load_dataset
+    from .incident_report import build_result, write_reports
+    from .trend_detector import detect_trends
+except ImportError:
+    from anomaly_detector import detect_anomalies
+    from cascade_detector import detect_cascade
+    from config import DATA_DIR
+    from dashboard import serve
+    from data_loader import load_dataset
+    from incident_report import build_result, write_reports
+    from trend_detector import detect_trends
 
 
 def run(data_dir=DATA_DIR) -> dict:

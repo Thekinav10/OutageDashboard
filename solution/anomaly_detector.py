@@ -3,7 +3,10 @@
 from collections import defaultdict
 from statistics import median
 
-from config import ANOMALY_SCORE_ALERT, BASELINE_POINTS, EARLY_WARNING_SCORE, MIN_WINDOW
+try:
+    from .config import ANOMALY_SCORE_ALERT, BASELINE_POINTS, EARLY_WARNING_SCORE, MIN_WINDOW
+except ImportError:
+    from config import ANOMALY_SCORE_ALERT, BASELINE_POINTS, EARLY_WARNING_SCORE, MIN_WINDOW
 
 
 def _mad(values: list[float], center: float) -> float:

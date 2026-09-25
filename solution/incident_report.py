@@ -3,8 +3,12 @@
 import json
 from pathlib import Path
 
-from config import REPORT_DIR
-from root_cause import rank_changes
+try:
+    from .config import REPORT_DIR
+    from .root_cause import rank_changes
+except ImportError:
+    from config import REPORT_DIR
+    from root_cause import rank_changes
 
 
 def build_result(dataset: dict, findings: list[dict], trends: list[dict], cascade: dict) -> dict:

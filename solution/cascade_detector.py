@@ -1,7 +1,11 @@
 """Combine metric onsets and graph topology into a cascade diagnosis."""
 
-from anomaly_detector import service_onsets
-from dependency_graph import propagation_path, reverse_graph
+try:
+    from .anomaly_detector import service_onsets
+    from .dependency_graph import propagation_path, reverse_graph
+except ImportError:
+    from anomaly_detector import service_onsets
+    from dependency_graph import propagation_path, reverse_graph
 
 
 def _descendants(service: str, dependencies: dict[str, list[str]]) -> set[str]:

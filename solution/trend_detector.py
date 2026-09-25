@@ -2,7 +2,10 @@
 
 from collections import defaultdict
 
-from config import MIN_WINDOW, TREND_SLOPE_ALERT
+try:
+    from .config import MIN_WINDOW, TREND_SLOPE_ALERT
+except ImportError:
+    from config import MIN_WINDOW, TREND_SLOPE_ALERT
 
 
 def detect_trends(findings: list[dict]) -> list[dict]:
