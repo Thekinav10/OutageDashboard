@@ -51,6 +51,20 @@ For local development, use port 8000 instead:
 python solution/app.py --month --serve --host 127.0.0.1 --port 8000
 ```
 
+## Deploy To Render
+
+The repository includes `render.yaml`, so Render can configure the service
+automatically from the repository.
+
+1. Push the repository to GitHub.
+2. In Render, choose **New + -> Blueprint**.
+3. Select this repository and apply the blueprint.
+4. Render uses the included build command, start command, free plan, and
+	`/api/live` health check.
+
+The service starts with the 30-day bookstore replay and listens on Render's
+assigned `$PORT`.
+
 ## Deploy To PythonAnywhere
 
 The repository includes `pythonanywhere_wsgi.py`, a WSGI entry point for the
