@@ -1,7 +1,8 @@
 # Outage Watch
 
-Outage Watch replays the supplied six-hour metrics stream, detects sustained
-latency deterioration, follows the service dependency graph, and ranks nearby
+I built Outage Watch to detect and explain cascading failures in a bookstore
+microservice platform. It replays supplied telemetry, supports a deterministic
+30-day hourly simulation, follows the service dependency graph, and ranks
 configuration changes as likely causes.
 
 ## Structure
@@ -11,7 +12,7 @@ datasets/          input CSV and JSON streams
 sabotage_drops/    optional live replacement streams
 solution/          detector, graph analysis, report generator, dashboard
 reports/           generated Markdown and JSON output
-demo/              judging/demo instructions
+demo/              local demo instructions
 ```
 
 ## Run
@@ -30,4 +31,6 @@ The first command writes `reports/incident_report.md` and
 The detector uses a median/MAD baseline, a rolling latency trend, and reverse
 dependency traversal. This avoids treating a single noisy spike as an
 incident and identifies the upstream service rather than the most degraded
-downstream service.
+downstream service. The dashboard also supports daily incident review,
+interactive dependency graphs, failed-service blast-radius analysis, and a
+calendar-filtered analyst queue.

@@ -1,1 +1,6 @@
-# The detector and dashboard use only the Python standard library.
+# Outage Watch runtime dependencies
+#
+# No third-party packages are required. The detector, report generator, and
+# dashboard use the Python standard library only.
+#
+# Python 3.10+ is required for built-in generic types and union annotations.
